@@ -1,10 +1,9 @@
 
 import { Card } from '@/components/ui/card';
 import {
-  Html5,
-  Css3,
-  Javascript,
-  ReactLogo,
+  Code,
+  FileCode,
+  CircuitBoard,
   Database,
   GitBranch,
   PenTool,
@@ -23,7 +22,7 @@ interface SkillCategory {
 const skillCategories: SkillCategory[] = [
   {
     title: 'Frontend',
-    icon: <Html5 size={24} className="text-primary" />,
+    icon: <Code size={24} className="text-primary" />,
     skills: ['HTML', 'CSS', 'JavaScript', 'TypeScript', 'React', 'Next.js', 'Tailwind CSS', 'Responsive Design'],
   },
   {
@@ -97,7 +96,7 @@ const Skills = () => {
           <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
             <div className="flex flex-col items-center text-center p-4">
               <div className="w-24 h-24 rounded-full bg-primary/10 flex items-center justify-center mb-4">
-                <Javascript size={40} className="text-primary" />
+                <FileCode size={40} className="text-primary" />
               </div>
               <h4 className="text-xl font-semibold mb-2">Frontend Development</h4>
               <p className="text-muted-foreground">Building responsive and interactive user interfaces</p>
