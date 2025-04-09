@@ -1,3 +1,4 @@
+
 import type { Config } from "tailwindcss";
 
 export default {
@@ -52,6 +53,20 @@ export default {
 					DEFAULT: 'hsl(var(--card))',
 					foreground: 'hsl(var(--card-foreground))'
 				},
+				// Portfolio specific colors
+				'theme': {
+					'50': '#f0f7fe',
+					'100': '#deecfb',
+					'200': '#c2def8',
+					'300': '#9cc9f3',
+					'400': '#6facea',
+					'500': '#4c8ee1',
+					'600': '#3674d5',
+					'700': '#2c60c3',
+					'800': '#2a4e9f',
+					'900': '#27437d',
+					'950': '#1c2b4e',
+				},
 				sidebar: {
 					DEFAULT: 'hsl(var(--sidebar-background))',
 					foreground: 'hsl(var(--sidebar-foreground))',
@@ -84,11 +99,85 @@ export default {
 					to: {
 						height: '0'
 					}
+				},
+				'fade-in': {
+					'0%': {
+						opacity: '0',
+						transform: 'translateY(10px)'
+					},
+					'100%': {
+						opacity: '1',
+						transform: 'translateY(0)'
+					}
+				},
+				'fade-out': {
+					'0%': {
+						opacity: '1'
+					},
+					'100%': {
+						opacity: '0'
+					}
+				},
+				'scale-in': {
+					'0%': {
+						opacity: '0',
+						transform: 'scale(0.95)'
+					},
+					'100%': {
+						opacity: '1',
+						transform: 'scale(1)'
+					}
+				},
+				'slide-in': {
+					'0%': {
+						opacity: '0',
+						transform: 'translateY(20px)'
+					},
+					'100%': {
+						opacity: '1',
+						transform: 'translateY(0)'
+					}
+				},
+				'slide-in-left': {
+					'0%': {
+						opacity: '0',
+						transform: 'translateX(-20px)'
+					},
+					'100%': {
+						opacity: '1',
+						transform: 'translateX(0)'
+					}
+				},
+				'slide-in-right': {
+					'0%': {
+						opacity: '0',
+						transform: 'translateX(20px)'
+					},
+					'100%': {
+						opacity: '1',
+						transform: 'translateX(0)'
+					}
+				},
+				'typing': {
+					'0%': { width: '0' },
+					'100%': { width: '100%' }
+				},
+				'blink-caret': {
+					'0%, 100%': { borderColor: 'transparent' },
+					'50%': { borderColor: 'currentColor' }
 				}
 			},
 			animation: {
 				'accordion-down': 'accordion-down 0.2s ease-out',
-				'accordion-up': 'accordion-up 0.2s ease-out'
+				'accordion-up': 'accordion-up 0.2s ease-out',
+				'fade-in': 'fade-in 0.5s ease-out forwards',
+				'fade-out': 'fade-out 0.5s ease-out forwards',
+				'scale-in': 'scale-in 0.5s ease-out forwards',
+				'slide-in': 'slide-in 0.5s ease-out forwards',
+				'slide-in-left': 'slide-in-left 0.5s ease-out forwards',
+				'slide-in-right': 'slide-in-right 0.5s ease-out forwards',
+				'typing': 'typing 3.5s steps(40, end)',
+				'blink-caret': 'blink-caret 0.75s step-end infinite',
 			}
 		}
 	},
