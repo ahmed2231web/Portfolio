@@ -21,22 +21,10 @@ const About = () => {
             className={`lg:col-span-2 space-y-6 ${isBioVisible ? 'animate-fade-in' : 'opacity-0'}`}
           >
             <p className="text-lg">
-              Hello! I'm Ahmed, a web developer passionate about building digital experiences that are both beautiful and functional. 
-              My journey in web development began with a curiosity about how websites work, which led me to dive deep into 
-              programming and design.
+              Hello! I'm Ahmed, a passionate web developer with expertise in modern technologies. 
+              I create responsive and user-friendly applications with clean, maintainable code.
             </p>
             
-            <p className="text-lg">
-              I enjoy working with modern technologies and frameworks to create responsive, user-friendly applications. 
-              Whether it's frontend development, backend systems, or full-stack solutions, I approach each project 
-              with enthusiasm and attention to detail.
-            </p>
-            
-            <p className="text-lg">
-              When I'm not coding, you might find me exploring new technologies, contributing to open source, 
-              or seeking inspiration from the work of fellow developers and designers.
-            </p>
-
             <div className="pt-4">
               <h3 className="text-xl font-semibold mb-4">My development philosophy:</h3>
               <ul className="list-disc list-inside space-y-2">
