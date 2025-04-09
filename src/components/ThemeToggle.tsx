@@ -2,6 +2,7 @@
 import { Moon, Sun } from 'lucide-react';
 import { useEffect, useState } from 'react';
 import { Button } from "@/components/ui/button";
+import { motion } from 'framer-motion';
 
 const ThemeToggle = () => {
   const [theme, setTheme] = useState<'light' | 'dark'>('light');
@@ -31,14 +32,21 @@ const ThemeToggle = () => {
       variant="ghost" 
       size="icon"
       onClick={toggleTheme}
-      className="w-10 h-10 rounded-full"
+      className="w-10 h-10 rounded-full relative overflow-hidden bg-secondary/50"
       aria-label={`Switch to ${theme === 'light' ? 'dark' : 'light'} theme`}
     >
-      {theme === 'light' ? (
-        <Moon className="h-5 w-5 transition-all" />
-      ) : (
-        <Sun className="h-5 w-5 transition-all" />
-      )}
+      <motion.div
+        initial={false}
+        animate={{ rotate: theme === 'dark' ? 180 : 0 }}
+        transition={{ duration: 0.5, type: 'spring', stiffness: 200 }}
+        className="absolute inset-0 flex items-center justify-center"
+      >
+        {theme === 'light' ? (
+          <Sun className="h-5 w-5 text-primary" />
+        ) : (
+          <Moon className="h-5 w-5 text-primary" />
+        )}
+      </motion.div>
       <span className="sr-only">Toggle theme</span>
     </Button>
   );
