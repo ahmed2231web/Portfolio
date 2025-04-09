@@ -53,7 +53,7 @@ export default {
 					DEFAULT: 'hsl(var(--card))',
 					foreground: 'hsl(var(--card-foreground))'
 				},
-				// Portfolio specific colors
+				// Portfolio specific colors with enhanced vibrant palette
 				'theme': {
 					'50': '#f0f7fe',
 					'100': '#deecfb',
@@ -165,7 +165,41 @@ export default {
 				'blink-caret': {
 					'0%, 100%': { borderColor: 'transparent' },
 					'50%': { borderColor: 'currentColor' }
-				}
+				},
+				'ping': {
+					'75%, 100%': { 
+						transform: 'scale(2)',
+						opacity: '0'
+					}
+				},
+				'bounce-subtle': {
+					'0%, 100%': { 
+						transform: 'translateY(-5%)',
+						animationTimingFunction: 'cubic-bezier(0.8, 0, 1, 1)'
+					},
+					'50%': {
+						transform: 'translateY(0)',
+						animationTimingFunction: 'cubic-bezier(0, 0, 0.2, 1)'
+					}
+				},
+				'pulse-glow': {
+					'0%, 100%': {
+						opacity: '1',
+						boxShadow: '0 0 0 0px rgba(79, 131, 251, 0.3)'
+					},
+					'50%': {
+						opacity: '0.6',
+						boxShadow: '0 0 0 10px rgba(79, 131, 251, 0)'
+					}
+				},
+				'rotate-slow': {
+					'0%': { transform: 'rotate(0deg)' },
+					'100%': { transform: 'rotate(360deg)' }
+				},
+				'background-shine': {
+					'from': { backgroundPosition: '200% 0' },
+					'to': { backgroundPosition: '0% 0' }
+				},
 			},
 			animation: {
 				'accordion-down': 'accordion-down 0.2s ease-out',
@@ -178,7 +212,22 @@ export default {
 				'slide-in-right': 'slide-in-right 0.5s ease-out forwards',
 				'typing': 'typing 3.5s steps(40, end)',
 				'blink-caret': 'blink-caret 0.75s step-end infinite',
-			}
+				'ping': 'ping 1.5s cubic-bezier(0, 0, 0.2, 1) infinite',
+				'bounce-subtle': 'bounce-subtle 2s infinite ease-in-out',
+				'pulse-glow': 'pulse-glow 2.5s infinite',
+				'rotate-slow': 'rotate-slow 10s linear infinite',
+				'background-shine': 'background-shine 2s linear infinite',
+			},
+			backgroundImage: {
+				'gradient-radial': 'radial-gradient(var(--tw-gradient-stops))',
+				'gradient-conic': 'conic-gradient(from 180deg at 50% 50%, var(--tw-gradient-stops))',
+				'gradient-shine': 'linear-gradient(45deg, transparent 25%, rgba(255, 255, 255, 0.1) 50%, transparent 75%, transparent 100%)',
+			},
+			boxShadow: {
+				'glow-sm': '0 0 10px rgba(79, 131, 251, 0.3)',
+				'glow-md': '0 0 20px rgba(79, 131, 251, 0.5)',
+				'glow-lg': '0 0 30px rgba(79, 131, 251, 0.7)',
+			},
 		}
 	},
 	plugins: [require("tailwindcss-animate")],
