@@ -1,8 +1,17 @@
-
 import { useState } from 'react';
 import { Button } from '@/components/ui/button';
 import ProjectCard, { ProjectProps } from './ProjectCard';
 import useScrollAnimation from '@/hooks/useScrollAnimation';
+import { 
+  Globe, 
+  FileCode, 
+  Terminal, 
+  Layers, 
+  Package, 
+  Bookmark, 
+  Star, 
+  Code 
+} from 'lucide-react';
 
 // Updated project data without liveUrl
 const projectsData: ProjectProps[] = [
