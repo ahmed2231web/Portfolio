@@ -53,24 +53,24 @@ export default {
 					DEFAULT: 'hsl(var(--card))',
 					foreground: 'hsl(var(--card-foreground))'
 				},
-				// Theme palette with the provided natural/earthy colors
+				// Theme palette with the new provided colors
 				'theme': {
-					'amber': '#FFBF46',      // Amber/Yellow
-					'slate': '#575761',      // Slate Gray
-					'teal': '#648381',       // Muted Teal
-					'green': '#8ACB88',      // Soft Green
-					'mint': '#E4FDE1',       // Pale Mint
-					'50': '#E4FDE1',
-					'100': '#d2f5cf',
-					'200': '#b9efb9',
-					'300': '#8ACB88',
-					'400': '#75b974',
-					'500': '#648381',
-					'600': '#50706d',
-					'700': '#575761',
-					'800': '#464650',
-					'900': '#36363f',
-					'950': '#25252c',
+					'white': '#fcfcfc',      // White
+					'pink': '#f7567c',      // Bright Pink (Crayola)
+					'cornsilk': '#fffae3',   // Cornsilk
+					'tiffany': '#99e1d9',    // Tiffany Blue
+					'wenge': '#5d576b',      // Wenge
+					'50': '#fffae3',
+					'100': '#ffdce9',
+					'200': '#f7567c',
+					'300': '#d9484d',
+					'400': '#99e1d9',
+					'500': '#5d576b',
+					'600': '#4a4655',
+					'700': '#383440',
+					'800': '#25232b',
+					'900': '#131115',
+					'950': '#0a080a',
 				},
 				sidebar: {
 					DEFAULT: 'hsl(var(--sidebar-background))',
