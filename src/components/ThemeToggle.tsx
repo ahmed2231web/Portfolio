@@ -1,5 +1,5 @@
 
-import { Moon, Sun } from 'lucide-react';
+import { Moon, Sun, Sparkle } from 'lucide-react';
 import { useEffect, useState } from 'react';
 import { Button } from "@/components/ui/button";
 import { motion } from 'framer-motion';
@@ -32,7 +32,7 @@ const ThemeToggle = () => {
       variant="ghost" 
       size="icon"
       onClick={toggleTheme}
-      className="w-10 h-10 rounded-full relative overflow-hidden bg-secondary/50"
+      className="w-10 h-10 rounded-full relative overflow-hidden bg-secondary/70 border border-primary/10 shadow-sm"
       aria-label={`Switch to ${theme === 'light' ? 'dark' : 'light'} theme`}
     >
       <motion.div
@@ -42,9 +42,31 @@ const ThemeToggle = () => {
         className="absolute inset-0 flex items-center justify-center"
       >
         {theme === 'light' ? (
-          <Sun className="h-5 w-5 text-primary" />
+          <div className="relative">
+            <Sun className="h-5 w-5 text-primary icon-3d" />
+            <motion.div
+              initial={{ scale: 0, opacity: 0 }}
+              animate={{ scale: [0, 1.2, 1], opacity: [0, 1, 0] }}
+              transition={{ 
+                duration: 2,
+                repeat: Infinity,
+                repeatDelay: 3
+              }}
+              className="absolute -inset-3 rounded-full border-2 border-primary/20"
+            />
+          </div>
         ) : (
-          <Moon className="h-5 w-5 text-primary" />
+          <div className="relative">
+            <Moon className="h-5 w-5 text-primary icon-3d" />
+            <motion.div
+              initial={{ opacity: 0 }}
+              animate={{ opacity: [0, 1, 0] }}
+              transition={{ duration: 1.5, repeat: Infinity, repeatDelay: 2 }}
+              className="absolute -top-1 -right-1"
+            >
+              <Sparkle className="h-3 w-3 text-accent" />
+            </motion.div>
+          </div>
         )}
       </motion.div>
       <span className="sr-only">Toggle theme</span>

@@ -1,9 +1,9 @@
 
-import { useState } from 'react';
+import { useState, useRef } from 'react';
 import { Card, CardContent, CardFooter, CardHeader } from '@/components/ui/card';
 import { Badge } from '@/components/ui/badge';
 import { Button } from '@/components/ui/button';
-import { Github, ExternalLink, ArrowRight } from 'lucide-react';
+import { Github, ExternalLink, ArrowRight, Code, Layers, Terminal, Globe } from 'lucide-react';
 import { cn } from '@/lib/utils';
 import { motion } from 'framer-motion';
 
@@ -26,6 +26,45 @@ interface ProjectCardProps {
 
 const ProjectCard = ({ project, className, isVisible }: ProjectCardProps) => {
   const [isHovered, setIsHovered] = useState(false);
+  const cardRef = useRef<HTMLDivElement>(null);
+  
+  // 3D tilt effect on mouse move
+  const handleMouseMove = (e: React.MouseEvent<HTMLDivElement>) => {
+    if (!cardRef.current) return;
+    
+    const { left, top, width, height } = cardRef.current.getBoundingClientRect();
+    const x = (e.clientX - left) / width;
+    const y = (e.clientY - top) / height;
+    
+    const tiltX = (y - 0.5) * 10; // -5 to +5 degrees
+    const tiltY = (0.5 - x) * 10; // -5 to +5 degrees
+    
+    cardRef.current.style.transform = `perspective(1000px) rotateX(${tiltX}deg) rotateY(${tiltY}deg) scale3d(1.02, 1.02, 1.02)`;
+  };
+  
+  const handleMouseLeave = () => {
+    if (cardRef.current) {
+      cardRef.current.style.transform = 'perspective(1000px) rotateX(0deg) rotateY(0deg) scale3d(1, 1, 1)';
+    }
+  };
+  
+  // Get icon based on category
+  const getProjectIcon = (category: string) => {
+    const iconStyle = "w-4 h-4 mr-1";
+    
+    switch(category.toLowerCase()) {
+      case 'web': 
+        return <Globe className={iconStyle} />;
+      case 'frontend': 
+        return <Code className={iconStyle} />;
+      case 'backend': 
+        return <Terminal className={iconStyle} />;
+      case 'fullstack': 
+        return <Layers className={iconStyle} />;
+      default: 
+        return <Code className={iconStyle} />;
+    }
+  };
 
   return (
     <motion.div
@@ -33,15 +72,21 @@ const ProjectCard = ({ project, className, isVisible }: ProjectCardProps) => {
       animate={isVisible ? { opacity: 1, y: 0 } : { opacity: 0, y: 30 }}
       transition={{ duration: 0.5 }}
       whileHover={{ y: -5, transition: { duration: 0.2 } }}
+      className="card-3d-effect"
     >
       <Card 
+        ref={cardRef}
         className={cn(
-          "overflow-hidden group transition-all duration-500 h-full flex flex-col bg-card/90 backdrop-blur-sm border-primary/10",
-          isHovered ? 'shadow-lg shadow-primary/10' : 'shadow-md',
+          "overflow-hidden group transition-all duration-500 h-full flex flex-col backdrop-blur-sm border-primary/10",
+          isHovered ? 'shadow-lg shadow-primary/20' : 'shadow-md',
           className
         )}
         onMouseEnter={() => setIsHovered(true)}
-        onMouseLeave={() => setIsHovered(false)}
+        onMouseLeave={() => {
+          setIsHovered(false);
+          handleMouseLeave();
+        }}
+        onMouseMove={handleMouseMove}
       >
         <div className="relative overflow-hidden pt-[56.25%]">
           <img 
@@ -54,8 +99,8 @@ const ProjectCard = ({ project, className, isVisible }: ProjectCardProps) => {
           />
           <div 
             className={cn(
-              "absolute inset-0 bg-gradient-to-t from-black/80 via-black/40 to-transparent transition-opacity duration-300",
-              isHovered ? 'opacity-100' : 'opacity-0'
+              "absolute inset-0 bg-gradient-to-t from-black/80 via-black/50 to-transparent transition-opacity duration-300",
+              isHovered ? 'opacity-100' : 'opacity-30'
             )}
           >
             <div className="absolute bottom-0 left-0 right-0 p-5 text-white transform transition-transform duration-300"
@@ -65,6 +110,7 @@ const ProjectCard = ({ project, className, isVisible }: ProjectCardProps) => {
               <div className="mt-2 flex gap-1">
                 {project.categories.slice(0, 2).map((category) => (
                   <Badge key={category} variant="outline" className="text-xs text-white border-white/30 bg-white/10">
+                    {getProjectIcon(category)}
                     {category}
                   </Badge>
                 ))}
@@ -76,12 +122,13 @@ const ProjectCard = ({ project, className, isVisible }: ProjectCardProps) => {
         <CardHeader className="py-4">
           <div className="flex flex-wrap gap-1 mb-2">
             {project.categories.map((category) => (
-              <Badge key={category} variant="secondary" className="text-xs">
+              <Badge key={category} variant="secondary" className="text-xs flex items-center">
+                {getProjectIcon(category)}
                 {category}
               </Badge>
             ))}
           </div>
-          <h3 className="text-xl font-bold group-hover:text-primary transition-colors duration-300">{project.title}</h3>
+          <h3 className="text-xl font-bold group-hover:gradient-text transition-colors duration-300">{project.title}</h3>
         </CardHeader>
         
         <CardContent className="pb-4 flex-grow">
@@ -100,7 +147,7 @@ const ProjectCard = ({ project, className, isVisible }: ProjectCardProps) => {
                 animate={{ opacity: 1, scale: 1 }}
                 transition={{ delay: 0.1 * i, duration: 0.3 }}
               >
-                <Badge variant="outline" className="text-xs transition-colors hover:bg-primary/10">
+                <Badge variant="outline" className="text-xs transition-colors hover:bg-accent/10">
                   {tag}
                 </Badge>
               </motion.div>
@@ -110,8 +157,9 @@ const ProjectCard = ({ project, className, isVisible }: ProjectCardProps) => {
         
         <CardFooter className="pt-0 flex gap-2">
           {project.githubUrl && (
-            <Button variant="outline" size="sm" asChild className="group/btn">
+            <Button variant="outline" size="sm" asChild className="group/btn overflow-hidden relative">
               <a href={project.githubUrl} target="_blank" rel="noopener noreferrer" className="flex items-center">
+                <span className="absolute inset-0 bg-gradient-to-r from-primary/0 via-primary/10 to-primary/0 group-hover/btn:translate-x-full transition-transform duration-700 ease-in-out"></span>
                 <Github className="w-4 h-4 mr-1" />
                 Code
                 <span className="w-0 h-0 overflow-hidden group-hover/btn:w-4 group-hover/btn:ml-1 transition-all duration-300 ease-in-out">
@@ -122,8 +170,9 @@ const ProjectCard = ({ project, className, isVisible }: ProjectCardProps) => {
           )}
           
           {project.liveUrl && (
-            <Button size="sm" asChild className="group/btn bg-gradient-to-r from-primary/90 to-primary/80 hover:from-primary hover:to-primary/90">
+            <Button size="sm" asChild className="group/btn bg-gradient-to-r from-primary/90 via-accent/80 to-primary/80 hover:from-primary hover:via-accent hover:to-primary/90 overflow-hidden relative">
               <a href={project.liveUrl} target="_blank" rel="noopener noreferrer" className="flex items-center">
+                <span className="absolute inset-0 bg-gradient-to-r from-white/0 via-white/20 to-white/0 -translate-x-full group-hover/btn:translate-x-full transition-transform duration-700 ease-in-out"></span>
                 <ExternalLink className="w-4 h-4 mr-1" />
                 Live Demo
                 <span className="w-0 h-0 overflow-hidden group-hover/btn:w-4 group-hover/btn:ml-1 transition-all duration-300 ease-in-out">
@@ -134,10 +183,10 @@ const ProjectCard = ({ project, className, isVisible }: ProjectCardProps) => {
           )}
         </CardFooter>
         
-        {/* Decorative corner accent */}
+        {/* Enhanced decorative corner accent */}
         <div className="absolute top-0 right-0 w-16 h-16 overflow-hidden">
           <div className={cn(
-            "absolute top-0 right-0 w-24 h-24 bg-gradient-to-bl from-primary/30 to-transparent -rotate-45 transform origin-top-right transition-opacity duration-300",
+            "absolute top-0 right-0 w-24 h-24 bg-gradient-to-bl from-accent/30 via-primary/20 to-transparent -rotate-45 transform origin-top-right transition-opacity duration-300",
             isHovered ? 'opacity-100' : 'opacity-0'
           )}></div>
         </div>
