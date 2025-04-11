@@ -1,5 +1,5 @@
 
-import { Moon, Sun, Sparkle } from 'lucide-react';
+import { Moon, Sun, Sparkle, Star } from 'lucide-react';
 import { useEffect, useState } from 'react';
 import { Button } from "@/components/ui/button";
 import { motion } from 'framer-motion';
@@ -32,7 +32,7 @@ const ThemeToggle = () => {
       variant="ghost" 
       size="icon"
       onClick={toggleTheme}
-      className="w-10 h-10 rounded-full relative overflow-hidden bg-secondary/70 border border-primary/10 shadow-sm"
+      className="w-12 h-12 rounded-full relative overflow-hidden bg-secondary/70 border border-primary/10 shadow-md hover:shadow-lg transition-all"
       aria-label={`Switch to ${theme === 'light' ? 'dark' : 'light'} theme`}
     >
       <motion.div
@@ -40,10 +40,11 @@ const ThemeToggle = () => {
         animate={{ rotate: theme === 'dark' ? 180 : 0 }}
         transition={{ duration: 0.5, type: 'spring', stiffness: 200 }}
         className="absolute inset-0 flex items-center justify-center"
+        style={{ perspective: '800px' }}
       >
         {theme === 'light' ? (
-          <div className="relative">
-            <Sun className="h-5 w-5 text-primary icon-3d" />
+          <div className="relative transform-gpu transition-all hover:scale-110">
+            <Sun className="h-6 w-6 text-amber-500 drop-shadow-[0_0_8px_rgba(251,191,36,0.5)] transform-gpu transition-transform hover:rotate-12" />
             <motion.div
               initial={{ scale: 0, opacity: 0 }}
               animate={{ scale: [0, 1.2, 1], opacity: [0, 1, 0] }}
@@ -52,19 +53,35 @@ const ThemeToggle = () => {
                 repeat: Infinity,
                 repeatDelay: 3
               }}
-              className="absolute -inset-3 rounded-full border-2 border-primary/20"
+              className="absolute -inset-3 rounded-full border-2 border-amber-500/20"
             />
+            <motion.div
+              initial={{ opacity: 0, x: -15, y: -15 }}
+              animate={{ opacity: [0, 1, 0], x: [-15, -5, 5], y: [-15, -10, -20] }}
+              transition={{ duration: 3, repeat: Infinity, repeatDelay: 2 }}
+              className="absolute -top-1 -right-3"
+            >
+              <Star className="h-3 w-3 text-amber-400 fill-amber-400" strokeWidth={1} />
+            </motion.div>
           </div>
         ) : (
-          <div className="relative">
-            <Moon className="h-5 w-5 text-primary icon-3d" />
+          <div className="relative transform-gpu transition-all hover:scale-110">
+            <Moon className="h-6 w-6 text-indigo-300 drop-shadow-[0_0_8px_rgba(165,180,252,0.5)] transform-gpu transition-transform hover:rotate-12" />
             <motion.div
               initial={{ opacity: 0 }}
               animate={{ opacity: [0, 1, 0] }}
               transition={{ duration: 1.5, repeat: Infinity, repeatDelay: 2 }}
               className="absolute -top-1 -right-1"
             >
-              <Sparkle className="h-3 w-3 text-accent" />
+              <Sparkle className="h-3 w-3 text-indigo-200 fill-indigo-200" strokeWidth={1} />
+            </motion.div>
+            <motion.div
+              initial={{ opacity: 0 }}
+              animate={{ opacity: [0, 0.7, 0] }}
+              transition={{ duration: 2, repeat: Infinity, repeatDelay: 3, delay: 1 }}
+              className="absolute -bottom-1 -left-2"
+            >
+              <Star className="h-2 w-2 text-indigo-200" strokeWidth={1} />
             </motion.div>
           </div>
         )}

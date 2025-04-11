@@ -3,7 +3,7 @@ import { useState, useRef } from 'react';
 import { Card, CardContent, CardFooter, CardHeader } from '@/components/ui/card';
 import { Badge } from '@/components/ui/badge';
 import { Button } from '@/components/ui/button';
-import { Github, ExternalLink, ArrowRight, Code, Layers, Terminal, Globe } from 'lucide-react';
+import { Github, Code, Layers, Terminal, Globe, Bookmark, Star, Package, FileCode } from 'lucide-react';
 import { cn } from '@/lib/utils';
 import { motion } from 'framer-motion';
 
@@ -14,7 +14,6 @@ export interface ProjectProps {
   image: string;
   tags: string[];
   githubUrl?: string;
-  liveUrl?: string;
   categories: string[];
 }
 
@@ -56,11 +55,15 @@ const ProjectCard = ({ project, className, isVisible }: ProjectCardProps) => {
       case 'web': 
         return <Globe className={iconStyle} />;
       case 'frontend': 
-        return <Code className={iconStyle} />;
+        return <FileCode className={iconStyle} />;
       case 'backend': 
         return <Terminal className={iconStyle} />;
       case 'fullstack': 
         return <Layers className={iconStyle} />;
+      case 'ui/ux':
+        return <Package className={iconStyle} />;
+      case 'mobile development':
+        return <Bookmark className={iconStyle} />;
       default: 
         return <Code className={iconStyle} />;
     }
@@ -78,7 +81,7 @@ const ProjectCard = ({ project, className, isVisible }: ProjectCardProps) => {
         ref={cardRef}
         className={cn(
           "overflow-hidden group transition-all duration-500 h-full flex flex-col backdrop-blur-sm border-primary/10",
-          isHovered ? 'shadow-lg shadow-primary/20' : 'shadow-md',
+          isHovered ? 'shadow-lg shadow-primary/30 border-primary/30' : 'shadow-md',
           className
         )}
         onMouseEnter={() => setIsHovered(true)}
@@ -117,6 +120,19 @@ const ProjectCard = ({ project, className, isVisible }: ProjectCardProps) => {
               </div>
             </div>
           </div>
+          
+          {/* Featured star marker */}
+          {project.id === '1' && (
+            <div className="absolute top-3 right-3 text-amber-400 animate-pulse-glow">
+              <motion.div
+                initial={{ rotate: 0 }}
+                animate={{ rotate: 360 }}
+                transition={{ duration: 20, repeat: Infinity, ease: "linear" }}
+              >
+                <Star className="w-6 h-6 drop-shadow-[0_0_3px_rgba(251,191,36,0.8)]" fill="currentColor" />
+              </motion.div>
+            </div>
+          )}
         </div>
         
         <CardHeader className="py-4">
@@ -155,29 +171,13 @@ const ProjectCard = ({ project, className, isVisible }: ProjectCardProps) => {
           </motion.div>
         </CardContent>
         
-        <CardFooter className="pt-0 flex gap-2">
+        <CardFooter className="pt-0">
           {project.githubUrl && (
-            <Button variant="outline" size="sm" asChild className="group/btn overflow-hidden relative">
-              <a href={project.githubUrl} target="_blank" rel="noopener noreferrer" className="flex items-center">
-                <span className="absolute inset-0 bg-gradient-to-r from-primary/0 via-primary/10 to-primary/0 group-hover/btn:translate-x-full transition-transform duration-700 ease-in-out"></span>
-                <Github className="w-4 h-4 mr-1" />
-                Code
-                <span className="w-0 h-0 overflow-hidden group-hover/btn:w-4 group-hover/btn:ml-1 transition-all duration-300 ease-in-out">
-                  <ArrowRight className="w-3 h-3" />
-                </span>
-              </a>
-            </Button>
-          )}
-          
-          {project.liveUrl && (
-            <Button size="sm" asChild className="group/btn bg-gradient-to-r from-primary/90 via-accent/80 to-primary/80 hover:from-primary hover:via-accent hover:to-primary/90 overflow-hidden relative">
-              <a href={project.liveUrl} target="_blank" rel="noopener noreferrer" className="flex items-center">
-                <span className="absolute inset-0 bg-gradient-to-r from-white/0 via-white/20 to-white/0 -translate-x-full group-hover/btn:translate-x-full transition-transform duration-700 ease-in-out"></span>
-                <ExternalLink className="w-4 h-4 mr-1" />
-                Live Demo
-                <span className="w-0 h-0 overflow-hidden group-hover/btn:w-4 group-hover/btn:ml-1 transition-all duration-300 ease-in-out">
-                  <ArrowRight className="w-3 h-3" />
-                </span>
+            <Button variant="outline" size="sm" asChild className="group/btn overflow-hidden relative w-full">
+              <a href={project.githubUrl} target="_blank" rel="noopener noreferrer" className="flex items-center justify-center">
+                <span className="absolute inset-0 bg-gradient-to-r from-primary/0 via-primary/20 to-primary/0 group-hover/btn:translate-x-full transition-transform duration-700 ease-in-out"></span>
+                <Github className="w-5 h-5 mr-2 transition-transform group-hover/btn:scale-110 duration-300" />
+                <span className="font-medium">View Code</span>
               </a>
             </Button>
           )}

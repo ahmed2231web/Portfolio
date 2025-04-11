@@ -4,7 +4,7 @@ import { Button } from '@/components/ui/button';
 import ProjectCard, { ProjectProps } from './ProjectCard';
 import useScrollAnimation from '@/hooks/useScrollAnimation';
 
-// Sample project data
+// Updated project data without liveUrl
 const projectsData: ProjectProps[] = [
   {
     id: '1',
@@ -13,7 +13,6 @@ const projectsData: ProjectProps[] = [
     image: 'https://images.unsplash.com/photo-1563013544-824ae1b704d3?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80',
     tags: ['React', 'Node.js', 'MongoDB', 'Stripe'],
     githubUrl: 'https://github.com/ahmed2231web/project1',
-    liveUrl: 'https://project1.demo',
     categories: ['Web Development', 'Full Stack'],
   },
   {
@@ -23,7 +22,6 @@ const projectsData: ProjectProps[] = [
     image: 'https://images.unsplash.com/photo-1517694712202-14dd9538aa97?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80',
     tags: ['React', 'Tailwind CSS', 'Framer Motion'],
     githubUrl: 'https://github.com/ahmed2231web/project2',
-    liveUrl: 'https://project2.demo',
     categories: ['Web Development', 'UI/UX'],
   },
   {
@@ -33,7 +31,6 @@ const projectsData: ProjectProps[] = [
     image: 'https://images.unsplash.com/photo-1540350394557-8d14678e7f91?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80',
     tags: ['React', 'Redux', 'Firebase'],
     githubUrl: 'https://github.com/ahmed2231web/project3',
-    liveUrl: 'https://project3.demo',
     categories: ['Web Development', 'Frontend'],
   },
   {
@@ -43,7 +40,6 @@ const projectsData: ProjectProps[] = [
     image: 'https://images.unsplash.com/photo-1580193769210-b8d1c049a7d9?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80',
     tags: ['JavaScript', 'API Integration', 'CSS'],
     githubUrl: 'https://github.com/ahmed2231web/project4',
-    liveUrl: 'https://project4.demo',
     categories: ['Web Development', 'Frontend'],
   },
   {
@@ -62,7 +58,6 @@ const projectsData: ProjectProps[] = [
     image: 'https://images.unsplash.com/photo-1466637574441-749b8f19452f?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80',
     tags: ['HTML', 'CSS', 'JavaScript', 'API Integration'],
     githubUrl: 'https://github.com/ahmed2231web/project6',
-    liveUrl: 'https://project6.demo',
     categories: ['Web Development', 'Frontend'],
   },
 ];
@@ -82,7 +77,7 @@ const Projects = () => {
     : projectsData.filter(project => project.categories.includes(activeCategory));
 
   return (
-    <section id="projects" className="section-padding px-6 md:px-10 bg-secondary/30">
+    <section id="projects" className="section-padding px-6 md:px-10 bg-gradient-to-b from-secondary/5 to-background">
       <div className="max-w-7xl mx-auto">
         <div 
           ref={titleRef} 
@@ -108,7 +103,8 @@ const Projects = () => {
               onClick={() => setActiveCategory(category)}
               className="rounded-full"
             >
-              {category}
+              {getProjectIcon(category)}
+              <span>{category}</span>
             </Button>
           ))}
         </div>
@@ -126,6 +122,28 @@ const Projects = () => {
       </div>
     </section>
   );
+};
+
+// Helper function to get icon based on category
+const getProjectIcon = (category: string) => {
+  switch(category.toLowerCase()) {
+    case 'web development': 
+      return <Globe className="w-4 h-4 mr-1" />;
+    case 'frontend': 
+      return <FileCode className="w-4 h-4 mr-1" />;
+    case 'backend': 
+      return <Terminal className="w-4 h-4 mr-1" />;
+    case 'full stack': 
+      return <Layers className="w-4 h-4 mr-1" />;
+    case 'ui/ux':
+      return <Package className="w-4 h-4 mr-1" />;
+    case 'mobile development':
+      return <Bookmark className="w-4 h-4 mr-1" />;
+    case 'all':
+      return <Star className="w-4 h-4 mr-1" />;
+    default: 
+      return <Code className="w-4 h-4 mr-1" />;
+  }
 };
 
 export default Projects;
