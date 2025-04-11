@@ -30,22 +30,24 @@ const Hero = () => {
       id="home" 
       className="min-h-screen flex flex-col justify-center pt-20 px-6 md:px-10 relative overflow-hidden"
     >
-      {/* Enhanced futuristic background with gradient overlay */}
-      <div className="absolute inset-0 bg-gradient-to-br from-background via-primary/5 to-background -z-10"></div>
+      {/* Background with new color scheme */}
+      <div className="absolute inset-0 bg-gradient-to-br from-theme-mint/50 via-theme-green/10 to-theme-mint/30 -z-10"></div>
       <div className="absolute inset-0 bg-grid-pattern opacity-[0.03] -z-10"></div>
       
-      {/* Enhanced animated particles with varying sizes and animation speeds */}
+      {/* Enhanced animated particles with new colors */}
       <div className="absolute top-0 left-0 w-full h-full overflow-hidden pointer-events-none -z-5">
         {particles.map((particle) => (
           <motion.div
             key={particle.id}
-            className="absolute bg-primary rounded-full"
+            className="absolute rounded-full"
             style={{
               width: particle.size,
               height: particle.size,
               top: `${particle.y}%`,
               left: `${particle.x}%`,
-              opacity: particle.opacity
+              opacity: particle.opacity,
+              backgroundColor: particle.id % 3 === 0 ? '#FFBF46' : 
+                              particle.id % 3 === 1 ? '#8ACB88' : '#648381'
             }}
             animate={{
               y: [0, Math.random() * 100 - 50],
@@ -63,10 +65,10 @@ const Hero = () => {
         ))}
       </div>
 
-      {/* Enhanced glowing circles with more vibrant colors */}
-      <div className="absolute top-1/4 -left-20 w-72 h-72 bg-blue-500/20 rounded-full blur-3xl -z-10 animate-pulse"></div>
-      <div className="absolute bottom-1/4 -right-20 w-96 h-96 bg-purple-500/20 rounded-full blur-3xl -z-10 animate-pulse" style={{animationDelay: '1s'}}></div>
-      <div className="absolute top-1/3 right-1/4 w-48 h-48 bg-cyan-500/10 rounded-full blur-2xl -z-10 animate-pulse" style={{animationDelay: '2s'}}></div>
+      {/* Enhanced glowing circles with new color scheme */}
+      <div className="absolute top-1/4 -left-20 w-72 h-72 bg-theme-amber/20 rounded-full blur-3xl -z-10 animate-pulse"></div>
+      <div className="absolute bottom-1/4 -right-20 w-96 h-96 bg-theme-green/20 rounded-full blur-3xl -z-10 animate-pulse" style={{animationDelay: '1s'}}></div>
+      <div className="absolute top-1/3 right-1/4 w-48 h-48 bg-theme-teal/10 rounded-full blur-2xl -z-10 animate-pulse" style={{animationDelay: '2s'}}></div>
       
       <div className="max-w-7xl mx-auto w-full relative">
         <motion.div 
@@ -82,19 +84,19 @@ const Hero = () => {
             className="space-y-3"
           >
             <motion.div 
-              className="text-xl md:text-2xl font-medium text-primary flex items-center gap-2"
+              className="text-xl md:text-2xl font-medium text-theme-teal flex items-center gap-2"
               initial={{ opacity: 0, x: -20 }}
               animate={{ opacity: 1, x: 0 }}
               transition={{ delay: 0.5, duration: 0.8 }}
             >
               <span className="relative inline-flex">
-                <Sparkles className="h-5 w-5 text-primary animate-pulse" />
-                <span className="absolute inset-0 rounded-full animate-ping bg-primary/20 duration-1000"></span>
+                <Sparkles className="h-5 w-5 text-theme-amber animate-pulse" />
+                <span className="absolute inset-0 rounded-full animate-ping bg-theme-amber/20 duration-1000"></span>
               </span>
               Hi, my name is
             </motion.div>
             <motion.h1 
-              className="text-5xl md:text-7xl font-bold text-glow"
+              className="text-5xl md:text-7xl font-bold text-theme-slate drop-shadow-sm"
               initial={{ opacity: 0, x: -30 }}
               animate={{ opacity: 1, x: 0 }}
               transition={{ delay: 0.7, duration: 0.8 }}
@@ -102,7 +104,7 @@ const Hero = () => {
               Ahmed.
             </motion.h1>
             <motion.h2 
-              className="text-3xl md:text-5xl font-medium text-muted-foreground"
+              className="text-3xl md:text-5xl font-medium text-theme-teal"
               initial={{ opacity: 0, x: -40 }}
               animate={{ opacity: 1, x: 0 }}
               transition={{ delay: 0.9, duration: 0.8 }}
@@ -138,7 +140,7 @@ const Hero = () => {
             <a href="#projects">
               <Button 
                 size="lg" 
-                className="px-8 bg-gradient-to-r from-primary to-primary/80 hover:opacity-90 transform transition-all duration-300 hover:-translate-y-1 shadow-md hover:shadow-lg hover:shadow-primary/20 relative overflow-hidden group"
+                className="px-8 bg-gradient-to-r from-theme-amber to-theme-amber/80 hover:opacity-90 transform transition-all duration-300 hover:-translate-y-1 shadow-md hover:shadow-lg hover:shadow-theme-amber/20 relative overflow-hidden group text-theme-slate"
               >
                 <span className="relative z-10">View My Work</span>
                 <span className="absolute inset-0 bg-white/10 opacity-0 group-hover:opacity-100 transition-opacity duration-300"></span>
@@ -148,24 +150,24 @@ const Hero = () => {
               <Button 
                 variant="outline" 
                 size="lg" 
-                className="border-primary/20 hover:border-primary transform transition-all duration-300 hover:-translate-y-1 shadow-sm hover:shadow-md relative overflow-hidden group"
+                className="border-theme-teal/40 hover:border-theme-teal text-theme-teal transform transition-all duration-300 hover:-translate-y-1 shadow-sm hover:shadow-md relative overflow-hidden group"
               >
                 <span className="relative z-10">Get In Touch</span>
-                <span className="absolute inset-0 bg-primary/5 opacity-0 group-hover:opacity-100 transition-opacity duration-300"></span>
+                <span className="absolute inset-0 bg-theme-teal/5 opacity-0 group-hover:opacity-100 transition-opacity duration-300"></span>
               </Button>
             </a>
           </motion.div>
         </motion.div>
         
-        {/* Enhanced custom shape divider */}
+        {/* Custom shape divider with new color */}
         <div className="absolute bottom-0 left-0 w-full overflow-hidden">
-          <svg data-name="Layer 1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 120" preserveAspectRatio="none" className="relative block w-full h-[60px] text-primary/5 fill-current">
+          <svg data-name="Layer 1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 120" preserveAspectRatio="none" className="relative block w-full h-[60px] text-theme-green/5 fill-current">
             <path d="M1200 120L0 16.48 0 0 1200 0 1200 120z"></path>
           </svg>
         </div>
       </div>
       
-      {/* Enhanced scroll indicator with more vibrant animation */}
+      {/* Enhanced scroll indicator */}
       <motion.div 
         className="absolute bottom-10 left-1/2 transform -translate-x-1/2 flex flex-col items-center"
         initial={{ opacity: 0, y: -10 }}
@@ -179,8 +181,17 @@ const Hero = () => {
         }}
       >
         <span className="text-sm mb-2 text-muted-foreground">Scroll</span>
-        <ArrowDown className="w-5 h-5 text-primary animate-bounce" />
+        <ArrowDown className="w-5 h-5 text-theme-amber animate-bounce" />
       </motion.div>
+
+      {/* Add the uploaded image */}
+      <div className="absolute -bottom-16 right-0 md:right-10 lg:right-20 w-48 h-48 md:w-64 md:h-64 opacity-10 -z-5 rotate-12">
+        <img 
+          src="/lovable-uploads/7d370591-d37b-4ad2-9719-1faaa766c3d6.png" 
+          alt="Design inspiration" 
+          className="w-full h-full object-contain"
+        />
+      </div>
     </section>
   );
 };

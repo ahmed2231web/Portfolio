@@ -53,19 +53,24 @@ export default {
 					DEFAULT: 'hsl(var(--card))',
 					foreground: 'hsl(var(--card-foreground))'
 				},
-				// Portfolio specific colors with enhanced vibrant palette
+				// Theme palette with the provided natural/earthy colors
 				'theme': {
-					'50': '#f0f7fe',
-					'100': '#deecfb',
-					'200': '#c2def8',
-					'300': '#9cc9f3',
-					'400': '#6facea',
-					'500': '#4c8ee1',
-					'600': '#3674d5',
-					'700': '#2c60c3',
-					'800': '#2a4e9f',
-					'900': '#27437d',
-					'950': '#1c2b4e',
+					'amber': '#FFBF46',      // Amber/Yellow
+					'slate': '#575761',      // Slate Gray
+					'teal': '#648381',       // Muted Teal
+					'green': '#8ACB88',      // Soft Green
+					'mint': '#E4FDE1',       // Pale Mint
+					'50': '#E4FDE1',
+					'100': '#d2f5cf',
+					'200': '#b9efb9',
+					'300': '#8ACB88',
+					'400': '#75b974',
+					'500': '#648381',
+					'600': '#50706d',
+					'700': '#575761',
+					'800': '#464650',
+					'900': '#36363f',
+					'950': '#25252c',
 				},
 				sidebar: {
 					DEFAULT: 'hsl(var(--sidebar-background))',
