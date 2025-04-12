@@ -1,4 +1,3 @@
-
 import { ArrowDown, Sparkles } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import TypingEffect from './TypingEffect';
@@ -23,7 +22,7 @@ const Hero = () => {
       className="min-h-screen flex flex-col justify-center pt-20 px-4 sm:px-6 md:px-10 relative overflow-hidden"
     >
       {/* Updated background with more vibrant gradient */}
-      <div className="absolute inset-0 bg-gradient-to-br from-theme-teal via-theme-blue to-theme-charcoal -z-10"></div>
+      <div className="absolute inset-0 bg-gradient-to-br from-[#2c3e50] via-[#34495e] to-[#2980b9] -z-10"></div>
       <div className="absolute inset-0 bg-grid-pattern opacity-[0.08] -z-10"></div>
       
       {/* Geometric shapes with more vibrant colors */}
@@ -56,67 +55,66 @@ const Hero = () => {
               Hi, my name is
             </motion.div>
             <motion.h1 
-              className="text-4xl sm:text-5xl md:text-7xl font-bold text-white drop-shadow-md"
+              className="text-4xl sm:text-5xl md:text-7xl font-bold text-transparent bg-gradient-to-r from-[#3498db] via-[#2980b9] to-[#34495e] bg-clip-text drop-shadow-md"
               initial={{ opacity: 0, x: -30 }}
               animate={{ opacity: 1, x: 0 }}
               transition={{ delay: 0.7, duration: 0.8 }}
             >
-              Ahmed.
-            </motion.h1>
-            <motion.h2 
-              className="text-2xl sm:text-3xl md:text-5xl font-medium text-white"
-              initial={{ opacity: 0, x: -40 }}
-              animate={{ opacity: 1, x: 0 }}
-              transition={{ delay: 0.9, duration: 0.8 }}
-            >
-              I <TypingEffect texts={[
-                "build for the web.",
-                "create user experiences.",
-                "solve complex problems.",
-                "turn ideas into reality."
-              ]} />
-            </motion.h2>
-          </motion.div>
-
-          <motion.div 
-            ref={subtitleRef}
-            initial={{ opacity: 0, y: 30 }}
-            animate={{ opacity: isSubtitleVisible ? 1 : 0, y: isSubtitleVisible ? 0 : 30 }}
-            transition={{ delay: 1.2, duration: 0.8 }}
-            className="max-w-xl text-base sm:text-lg md:text-xl text-white"
+            Ahmed.
+          </motion.h1>
+          <motion.h2 
+            className="text-2xl sm:text-3xl md:text-5xl font-medium text-white"
+            initial={{ opacity: 0, x: -40 }}
+            animate={{ opacity: 1, x: 0 }}
+            transition={{ delay: 0.9, duration: 0.8 }}
           >
-            I'm a passionate full-stack developer focused on creating exceptional digital experiences. 
-            Currently, I specialize in building responsive, accessible, and high-performance web applications
-            that solve real-world problems.
-          </motion.div>
-
-          <motion.div 
-            ref={ctaRef}
-            initial={{ opacity: 0, y: 30 }}
-            animate={{ opacity: isCtaVisible ? 1 : 0, y: isCtaVisible ? 0 : 30 }}
-            transition={{ delay: 1.5, duration: 0.8 }}
-            className="flex flex-col sm:flex-row gap-4"
-          >
-            <a href="#projects" className="w-full sm:w-auto">
-              <Button 
-                size={isMobile ? "default" : "lg"}
-                className="w-full sm:w-auto px-6 sm:px-8 py-6 sm:py-6 bg-white text-theme-charcoal hover:bg-white/90 transform transition-all duration-300 hover:-translate-y-1 shadow-lg font-semibold text-base"
-              >
-                View My Work
-              </Button>
-            </a>
-            <a href="#contact" className="w-full sm:w-auto">
-              <Button 
-                variant="outline" 
-                size={isMobile ? "default" : "lg"}
-                className="w-full sm:w-auto px-6 sm:px-8 py-6 sm:py-6 border-white text-white hover:border-white hover:bg-white/10 transform transition-all duration-300 hover:-translate-y-1 shadow-lg hover:shadow-xl font-semibold text-base"
-              >
-                Get In Touch
-              </Button>
-            </a>
-          </motion.div>
+            I <TypingEffect texts={[
+              "build for the web.",
+              "create user experiences.",
+              "solve complex problems.",
+              "turn ideas into reality."
+            ]} />
+          </motion.h2>
         </motion.div>
-      </div>
+
+        <motion.div 
+          ref={subtitleRef}
+          initial={{ opacity: 0, y: 30 }}
+          animate={{ opacity: isSubtitleVisible ? 1 : 0, y: isSubtitleVisible ? 0 : 30 }}
+          transition={{ delay: 1.2, duration: 0.8 }}
+          className="max-w-xl text-base sm:text-lg md:text-xl text-white"
+        >
+          I'm a passionate full-stack developer focused on creating exceptional digital experiences. 
+          Currently, I specialize in building responsive, accessible, and high-performance web applications
+          that solve real-world problems.
+        </motion.div>
+
+        <motion.div 
+          ref={ctaRef}
+          initial={{ opacity: 0, y: 30 }}
+          animate={{ opacity: isCtaVisible ? 1 : 0, y: isCtaVisible ? 0 : 30 }}
+          transition={{ delay: 1.5, duration: 0.8 }}
+          className="flex flex-col sm:flex-row gap-4"
+        >
+          <a href="#projects" className="w-full sm:w-auto">
+            <Button 
+              size={isMobile ? "default" : "lg"}
+              className="w-full sm:w-auto px-6 sm:px-8 py-6 sm:py-6 bg-white text-theme-charcoal hover:bg-white/90 transform transition-all duration-300 hover:-translate-y-1 shadow-lg font-semibold text-base"
+            >
+              View My Work
+            </Button>
+          </a>
+          <a href="#contact" className="w-full sm:w-auto">
+            <Button 
+              variant="outline" 
+              size={isMobile ? "default" : "lg"}
+              className="w-full sm:w-auto px-6 sm:px-8 py-6 sm:py-6 border-white text-white hover:border-white hover:bg-white/10 transform transition-all duration-300 hover:-translate-y-1 shadow-lg hover:shadow-xl font-semibold text-base"
+            >
+              Get In Touch
+            </Button>
+          </a>
+        </motion.div>
+      </motion.div>
       
       <motion.div 
         className="absolute bottom-10 left-1/2 transform -translate-x-1/2 flex flex-col items-center"

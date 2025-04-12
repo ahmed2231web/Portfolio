@@ -30,28 +30,28 @@ const skillCategories: SkillCategory[] = [
     icon: <Code size={24} strokeWidth={1.5} />,
     skills: ['HTML', 'CSS', 'JavaScript', 'TypeScript', 'React', 'Next.js', 'Tailwind CSS', 'Responsive Design'],
     color: 'text-blue-500',
-    gradient: 'from-blue-500 via-indigo-400 to-blue-600',
+    gradient: 'from-[#4f5ddf] via-[#7367f0] to-[#6a5acd]', // Deep purple to blue gradient
   },
   {
     title: 'Backend',
     icon: <Server size={24} strokeWidth={1.5} />,
     skills: ['Node.js', 'Express', 'RESTful APIs', 'GraphQL', 'MongoDB', 'PostgreSQL', 'Authentication'],
-    color: 'text-emerald-500',
-    gradient: 'from-emerald-500 via-green-400 to-teal-500',
+    color: 'text-green-500',
+    gradient: 'from-[#20c997] via-[#16a085] to-[#0dcaf0]', // Teal to cyan gradient
   },
   {
     title: 'Tools & Methods',
     icon: <GitBranch size={24} strokeWidth={1.5} />,
     skills: ['Git', 'GitHub', 'VS Code', 'Agile', 'CI/CD', 'Testing', 'Performance Optimization'],
-    color: 'text-violet-500',
-    gradient: 'from-violet-500 via-purple-400 to-violet-600',
+    color: 'text-purple-500',
+    gradient: 'from-[#8a2be2] via-[#9932cc] to-[#ba55d3]', // Purple to magenta gradient
   },
   {
     title: 'Design',
     icon: <PenTool size={24} strokeWidth={1.5} />,
     skills: ['Figma', 'Adobe XD', 'UI/UX', 'Wireframing', 'Prototyping', 'Responsive Design'],
-    color: 'text-rose-500',
-    gradient: 'from-rose-500 via-pink-400 to-rose-600',
+    color: 'text-pink-500',
+    gradient: 'from-[#ff4081] via-[#f50057] to-[#ff5252]', // Vibrant pink to red gradient
   },
 ];
 

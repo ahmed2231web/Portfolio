@@ -1,4 +1,3 @@
-
 import { Heart, Github, Linkedin, Twitter, Mail } from 'lucide-react';
 import { motion } from 'framer-motion';
 
@@ -6,10 +5,10 @@ const Footer = () => {
   const currentYear = new Date().getFullYear();
 
   return (
-    <footer className="py-16 px-6 md:px-10 relative overflow-hidden bg-secondary/30">
+    <footer className="py-16 px-6 md:px-10 relative overflow-hidden bg-[#2c3e50]">
       {/* Background elements */}
-      <div className="absolute inset-0 bg-gradient-to-t from-background to-transparent opacity-40 pointer-events-none"></div>
-      <div className="absolute top-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-primary/20 to-transparent"></div>
+      <div className="absolute inset-0 bg-gradient-to-t from-[#34495e] to-transparent opacity-40 pointer-events-none"></div>
+      <div className="absolute top-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-[#3498db]/20 to-transparent"></div>
       
       {/* Geometric shapes */}
       <div className="absolute bottom-0 right-0 opacity-10 pointer-events-none">
@@ -28,9 +27,9 @@ const Footer = () => {
         <div className="grid grid-cols-1 md:grid-cols-4 gap-10">
           <div className="col-span-2">
             <a href="#home" className="inline-block mb-4">
-              <h2 className="text-2xl font-bold bg-gradient-to-r from-primary to-primary/70 bg-clip-text text-transparent">Ahmed</h2>
+              <h2 className="text-2xl font-bold bg-gradient-to-r from-[#3498db] to-[#2980b9] bg-clip-text text-transparent">Ahmed</h2>
             </a>
-            <p className="text-muted-foreground max-w-md mb-6">
+            <p className="text-white/80 max-w-md mb-6">
               A passionate full-stack developer focused on building beautiful interfaces & experiences. Always eager to learn and collaborate on interesting projects.
             </p>
             <div className="flex space-x-4">
@@ -110,13 +109,13 @@ const Footer = () => {
           </div>
         </div>
         
-        <div className="mt-12 pt-6 border-t border-primary/10 flex flex-col md:flex-row justify-between items-center">
-          <p className="text-sm text-muted-foreground mb-4 md:mb-0">
+        <div className="mt-12 pt-6 border-t border-white/10 flex flex-col md:flex-row justify-between items-center">
+          <p className="text-sm text-white/70 mb-4 md:mb-0">
             © {currentYear} Ahmed. All rights reserved.
           </p>
           
           <div className="flex items-center">
-            <p className="text-sm text-muted-foreground flex items-center">
+            <p className="text-sm text-white/70 flex items-center">
               Built with <Heart className="w-4 h-4 mx-1 text-red-500 animate-pulse" /> using React & Tailwind CSS
             </p>
           </div>
