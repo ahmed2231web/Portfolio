@@ -14,61 +14,24 @@ const Hero = () => {
     threshold: 0.1,
   });
 
-  // Enhanced animated particles
-  const particles = Array.from({ length: 30 }).map((_, i) => ({
-    id: i,
-    size: Math.random() * 15 + 5,
-    x: Math.random() * 100,
-    y: Math.random() * 100,
-    duration: Math.random() * 15 + 10,
-    delay: Math.random() * 2,
-    opacity: Math.random() * 0.5 + 0.2
-  }));
-
   return (
     <section 
       id="home" 
       className="min-h-screen flex flex-col justify-center pt-20 px-6 md:px-10 relative overflow-hidden"
     >
-      {/* Background with new color scheme */}
-      <div className="absolute inset-0 bg-gradient-to-br from-theme-cornsilk/50 via-theme-tiffany/10 to-theme-cornsilk/30 -z-10"></div>
+      {/* Background with updated color scheme */}
+      <div className="absolute inset-0 bg-gradient-to-br from-theme-cornsilk/50 via-theme-teal/10 to-theme-cornsilk/30 -z-10"></div>
       <div className="absolute inset-0 bg-grid-pattern opacity-[0.03] -z-10"></div>
       
-      {/* Enhanced animated particles with new colors */}
-      <div className="absolute top-0 left-0 w-full h-full overflow-hidden pointer-events-none -z-5">
-        {particles.map((particle) => (
-          <motion.div
-            key={particle.id}
-            className="absolute rounded-full"
-            style={{
-              width: particle.size,
-              height: particle.size,
-              top: `${particle.y}%`,
-              left: `${particle.x}%`,
-              opacity: particle.opacity,
-              backgroundColor: particle.id % 3 === 0 ? '#f7567c' : 
-                              particle.id % 3 === 1 ? '#99e1d9' : '#5d576b'
-            }}
-            animate={{
-              y: [0, Math.random() * 100 - 50],
-              opacity: [particle.opacity, particle.opacity * 2, particle.opacity],
-              scale: [1, Math.random() * 0.5 + 1, 1]
-            }}
-            transition={{
-              duration: particle.duration,
-              delay: particle.delay,
-              repeat: Infinity,
-              repeatType: "reverse",
-              ease: "easeInOut",
-            }}
-          />
-        ))}
-      </div>
-
-      {/* Enhanced glowing circles with new color scheme */}
-      <div className="absolute top-1/4 -left-20 w-72 h-72 bg-theme-pink/20 rounded-full blur-3xl -z-10 animate-pulse"></div>
-      <div className="absolute bottom-1/4 -right-20 w-96 h-96 bg-theme-tiffany/20 rounded-full blur-3xl -z-10 animate-pulse" style={{animationDelay: '1s'}}></div>
-      <div className="absolute top-1/3 right-1/4 w-48 h-48 bg-theme-wenge/10 rounded-full blur-2xl -z-10 animate-pulse" style={{animationDelay: '2s'}}></div>
+      {/* Abstract geometric shapes with new colors */}
+      <div className="absolute top-20 right-20 w-32 h-32 bg-transparent border-4 border-theme-teal/30 transform rotate-45 -z-5"></div>
+      <div className="absolute bottom-20 left-20 w-48 h-48 bg-transparent border-4 border-theme-blue/20 rounded-md transform -rotate-12 -z-5"></div>
+      <div className="absolute top-1/3 left-1/4 w-24 h-24 bg-transparent border-4 border-theme-charcoal/20 transform rotate-12 -z-5"></div>
+      
+      {/* Enhanced glowing accents with new colors */}
+      <div className="absolute top-1/4 -left-20 w-72 h-72 bg-theme-blue/10 rounded-full blur-3xl -z-10"></div>
+      <div className="absolute bottom-1/4 -right-20 w-96 h-96 bg-theme-teal/10 rounded-full blur-3xl -z-10"></div>
+      <div className="absolute top-1/3 right-1/4 w-48 h-48 bg-theme-charcoal/5 rounded-full blur-2xl -z-10"></div>
       
       <div className="max-w-7xl mx-auto w-full relative">
         <motion.div 
@@ -84,19 +47,19 @@ const Hero = () => {
             className="space-y-3"
           >
             <motion.div 
-              className="text-xl md:text-2xl font-medium text-theme-wenge flex items-center gap-2"
+              className="text-xl md:text-2xl font-medium text-theme-charcoal flex items-center gap-2"
               initial={{ opacity: 0, x: -20 }}
               animate={{ opacity: 1, x: 0 }}
               transition={{ delay: 0.5, duration: 0.8 }}
             >
               <span className="relative inline-flex">
-                <Sparkles className="h-5 w-5 text-theme-pink animate-pulse" />
-                <span className="absolute inset-0 rounded-full animate-ping bg-theme-pink/20 duration-1000"></span>
+                <Sparkles className="h-5 w-5 text-theme-blue animate-pulse" />
+                <span className="absolute inset-0 rounded-full animate-ping bg-theme-blue/20 duration-1000"></span>
               </span>
               Hi, my name is
             </motion.div>
             <motion.h1 
-              className="text-5xl md:text-7xl font-bold text-theme-wenge drop-shadow-sm"
+              className="text-5xl md:text-7xl font-bold text-theme-charcoal drop-shadow-sm"
               initial={{ opacity: 0, x: -30 }}
               animate={{ opacity: 1, x: 0 }}
               transition={{ delay: 0.7, duration: 0.8 }}
@@ -104,7 +67,7 @@ const Hero = () => {
               Ahmed.
             </motion.h1>
             <motion.h2 
-              className="text-3xl md:text-5xl font-medium text-theme-wenge"
+              className="text-3xl md:text-5xl font-medium text-theme-charcoal"
               initial={{ opacity: 0, x: -40 }}
               animate={{ opacity: 1, x: 0 }}
               transition={{ delay: 0.9, duration: 0.8 }}
@@ -140,7 +103,7 @@ const Hero = () => {
             <a href="#projects">
               <Button 
                 size="lg" 
-                className="px-8 bg-gradient-to-r from-theme-pink to-theme-pink/80 hover:opacity-90 transform transition-all duration-300 hover:-translate-y-1 shadow-md hover:shadow-lg hover:shadow-theme-pink/20 relative overflow-hidden group text-theme-white"
+                className="px-8 bg-gradient-to-r from-theme-blue to-theme-blue/80 hover:opacity-90 transform transition-all duration-300 hover:-translate-y-1 shadow-md hover:shadow-lg hover:shadow-theme-blue/20 relative overflow-hidden group text-white"
               >
                 <span className="relative z-10">View My Work</span>
                 <span className="absolute inset-0 bg-white/10 opacity-0 group-hover:opacity-100 transition-opacity duration-300"></span>
@@ -150,10 +113,10 @@ const Hero = () => {
               <Button 
                 variant="outline" 
                 size="lg" 
-                className="border-theme-wenge/40 hover:border-theme-wenge text-theme-wenge transform transition-all duration-300 hover:-translate-y-1 shadow-sm hover:shadow-md relative overflow-hidden group"
+                className="border-theme-charcoal/40 hover:border-theme-charcoal text-theme-charcoal transform transition-all duration-300 hover:-translate-y-1 shadow-sm hover:shadow-md relative overflow-hidden group"
               >
                 <span className="relative z-10">Get In Touch</span>
-                <span className="absolute inset-0 bg-theme-tiffany/5 opacity-0 group-hover:opacity-100 transition-opacity duration-300"></span>
+                <span className="absolute inset-0 bg-theme-teal/5 opacity-0 group-hover:opacity-100 transition-opacity duration-300"></span>
               </Button>
             </a>
           </motion.div>
@@ -161,7 +124,7 @@ const Hero = () => {
         
         {/* Custom shape divider with new color */}
         <div className="absolute bottom-0 left-0 w-full overflow-hidden">
-          <svg data-name="Layer 1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 120" preserveAspectRatio="none" className="relative block w-full h-[60px] text-theme-tiffany/5 fill-current">
+          <svg data-name="Layer 1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 120" preserveAspectRatio="none" className="relative block w-full h-[60px] text-theme-teal/5 fill-current">
             <path d="M1200 120L0 16.48 0 0 1200 0 1200 120z"></path>
           </svg>
         </div>
@@ -181,7 +144,7 @@ const Hero = () => {
         }}
       >
         <span className="text-sm mb-2 text-muted-foreground">Scroll</span>
-        <ArrowDown className="w-5 h-5 text-theme-pink animate-bounce" />
+        <ArrowDown className="w-5 h-5 text-theme-blue animate-bounce" />
       </motion.div>
     </section>
   );

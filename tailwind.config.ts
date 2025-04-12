@@ -53,24 +53,24 @@ export default {
 					DEFAULT: 'hsl(var(--card))',
 					foreground: 'hsl(var(--card-foreground))'
 				},
-				// Theme palette with the new provided colors
+				// Updated theme palette with proper blue tones instead of pink
 				'theme': {
 					'white': '#fcfcfc',      // White
-					'pink': '#f7567c',      // Bright Pink (Crayola)
+					'blue': '#1EAEDB',       // Bright Blue
 					'cornsilk': '#fffae3',   // Cornsilk
-					'tiffany': '#99e1d9',    // Tiffany Blue
-					'wenge': '#5d576b',      // Wenge
-					'50': '#fffae3',
-					'100': '#ffdce9',
-					'200': '#f7567c',
-					'300': '#d9484d',
-					'400': '#99e1d9',
-					'500': '#5d576b',
-					'600': '#4a4655',
-					'700': '#383440',
-					'800': '#25232b',
-					'900': '#131115',
-					'950': '#0a080a',
+					'teal': '#99e1d9',       // Tiffany Blue (now referred to as Teal)
+					'charcoal': '#5d576b',   // Wenge (now referred to as Charcoal)
+					'50': '#f0f9ff',
+					'100': '#e0f2fe',
+					'200': '#bae6fd',
+					'300': '#7dd3fc',
+					'400': '#38bdf8',
+					'500': '#0ea5e9',
+					'600': '#0284c7',
+					'700': '#0369a1',
+					'800': '#075985',
+					'900': '#0c4a6e',
+					'950': '#082f49',
 				},
 				sidebar: {
 					DEFAULT: 'hsl(var(--sidebar-background))',
