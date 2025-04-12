@@ -32,7 +32,7 @@ const ThemeToggle = () => {
       variant="ghost" 
       size="icon"
       onClick={toggleTheme}
-      className="w-12 h-12 rounded-full relative overflow-hidden bg-theme-teal/10 border border-theme-charcoal/10 shadow-sm hover:shadow-md transition-all"
+      className="w-10 h-10 sm:w-12 sm:h-12 rounded-full relative overflow-hidden border border-theme-blue/20 shadow-md hover:shadow-lg transition-all"
       aria-label={`Switch to ${theme === 'light' ? 'dark' : 'light'} theme`}
     >
       <motion.div
@@ -44,7 +44,7 @@ const ThemeToggle = () => {
       >
         {theme === 'light' ? (
           <div className="relative transform-gpu transition-all hover:scale-110">
-            <Sun className="h-6 w-6 text-theme-charcoal transform-gpu transition-transform hover:rotate-12" />
+            <Sun className="h-5 w-5 sm:h-6 sm:w-6 text-theme-blue transform-gpu transition-transform hover:rotate-12" />
             <motion.div
               initial={{ scale: 0, opacity: 0 }}
               animate={{ scale: [0, 1.2, 1], opacity: [0, 1, 0] }}
@@ -53,7 +53,7 @@ const ThemeToggle = () => {
                 repeat: Infinity,
                 repeatDelay: 3
               }}
-              className="absolute -inset-3 rounded-full border-2 border-theme-charcoal/10"
+              className="absolute -inset-3 rounded-full border-2 border-theme-blue/30"
             />
             <motion.div
               initial={{ opacity: 0, x: -15, y: -15 }}
@@ -61,19 +61,19 @@ const ThemeToggle = () => {
               transition={{ duration: 3, repeat: Infinity, repeatDelay: 2 }}
               className="absolute -top-1 -right-3"
             >
-              <Star className="h-3 w-3 text-theme-charcoal" strokeWidth={1} />
+              <Star className="h-2 w-2 sm:h-3 sm:w-3 text-theme-blue" strokeWidth={1} />
             </motion.div>
           </div>
         ) : (
           <div className="relative transform-gpu transition-all hover:scale-110">
-            <Moon className="h-6 w-6 text-theme-teal transform-gpu transition-transform hover:rotate-12" />
+            <Moon className="h-5 w-5 sm:h-6 sm:w-6 text-theme-teal transform-gpu transition-transform hover:rotate-12" />
             <motion.div
               initial={{ opacity: 0 }}
               animate={{ opacity: [0, 1, 0] }}
               transition={{ duration: 1.5, repeat: Infinity, repeatDelay: 2 }}
               className="absolute -top-1 -right-1"
             >
-              <Sparkle className="h-3 w-3 text-theme-teal" strokeWidth={1} />
+              <Sparkle className="h-2 w-2 sm:h-3 sm:w-3 text-theme-teal" strokeWidth={1} />
             </motion.div>
             <motion.div
               initial={{ opacity: 0 }}
@@ -81,7 +81,7 @@ const ThemeToggle = () => {
               transition={{ duration: 2, repeat: Infinity, repeatDelay: 3, delay: 1 }}
               className="absolute -bottom-1 -left-2"
             >
-              <Star className="h-2 w-2 text-theme-teal" strokeWidth={1} />
+              <Star className="h-1.5 w-1.5 sm:h-2 sm:w-2 text-theme-teal" strokeWidth={1} />
             </motion.div>
           </div>
         )}

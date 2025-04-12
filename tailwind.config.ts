@@ -53,24 +53,24 @@ export default {
 					DEFAULT: 'hsl(var(--card))',
 					foreground: 'hsl(var(--card-foreground))'
 				},
-				// Updated theme palette with proper blue tones instead of pink
+				// Updated theme palette with brighter, more vibrant colors
 				'theme': {
-					'white': '#fcfcfc',      // White
-					'blue': '#1EAEDB',       // Bright Blue
-					'cornsilk': '#fffae3',   // Cornsilk
-					'teal': '#99e1d9',       // Tiffany Blue (now referred to as Teal)
-					'charcoal': '#5d576b',   // Wenge (now referred to as Charcoal)
-					'50': '#f0f9ff',
-					'100': '#e0f2fe',
-					'200': '#bae6fd',
-					'300': '#7dd3fc',
-					'400': '#38bdf8',
-					'500': '#0ea5e9',
-					'600': '#0284c7',
-					'700': '#0369a1',
-					'800': '#075985',
-					'900': '#0c4a6e',
-					'950': '#082f49',
+					'white': '#ffffff',      // Pure White
+					'blue': '#1E90FF',       // Dodger Blue (brighter)
+					'cornsilk': '#fff8dc',   // Brighter Cornsilk
+					'teal': '#20E0D0',       // Brighter Turquoise
+					'charcoal': '#444654',   // Darker Charcoal for better contrast
+					'50': '#ebf8ff',
+					'100': '#d1eefc',
+					'200': '#a7d8fd',
+					'300': '#7cc2fc',
+					'400': '#52acfa',
+					'500': '#2895f9',
+					'600': '#0a7ae0',
+					'700': '#0862b9',
+					'800': '#064a91',
+					'900': '#053a76',
+					'950': '#042a58',
 				},
 				sidebar: {
 					DEFAULT: 'hsl(var(--sidebar-background))',
