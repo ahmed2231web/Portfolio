@@ -1,5 +1,5 @@
 
-import { Heart, Github, Linkedin, Twitter, Mail, Cpu, Zap, Circuit, CircuitBoard } from 'lucide-react';
+import { Heart, Github, Linkedin, Twitter, Mail, Cpu, Zap, CircuitBoard } from 'lucide-react';
 import { motion } from 'framer-motion';
 
 const Footer = () => {

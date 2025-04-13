@@ -1,5 +1,5 @@
 
-import { ArrowDown, Sparkles, Circuit, Cpu, Zap } from 'lucide-react';
+import { ArrowDown, Sparkles, CircuitBoard, Cpu, Zap } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import TypingEffect from './TypingEffect';
 import useScrollAnimation from '@/hooks/useScrollAnimation';
