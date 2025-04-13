@@ -7,6 +7,37 @@ import Skills from '@/components/Skills';
 import Contact from '@/components/Contact';
 import Footer from '@/components/Footer';
 import { useEffect } from 'react';
+import { motion } from 'framer-motion';
+
+const pageVariants = {
+  initial: {
+    opacity: 0,
+  },
+  animate: {
+    opacity: 1,
+    transition: {
+      staggerChildren: 0.1,
+      delayChildren: 0.2,
+    },
+  },
+  exit: {
+    opacity: 0,
+  },
+};
+
+const sectionVariants = {
+  initial: {
+    opacity: 0,
+    y: 20,
+  },
+  animate: {
+    opacity: 1,
+    y: 0,
+    transition: {
+      duration: 0.5,
+    },
+  },
+};
 
 const Index = () => {
   // Implement scroll animation for elements
@@ -34,17 +65,33 @@ const Index = () => {
   }, []);
 
   return (
-    <div className="min-h-screen flex flex-col">
+    <motion.div 
+      className="min-h-screen flex flex-col"
+      initial="initial"
+      animate="animate"
+      exit="exit"
+      variants={pageVariants}
+    >
       <Header />
       <main>
-        <Hero />
-        <About />
-        <Projects />
-        <Skills />
-        <Contact />
+        <motion.div variants={sectionVariants}>
+          <Hero />
+        </motion.div>
+        <motion.div variants={sectionVariants}>
+          <About />
+        </motion.div>
+        <motion.div variants={sectionVariants}>
+          <Projects />
+        </motion.div>
+        <motion.div variants={sectionVariants}>
+          <Skills />
+        </motion.div>
+        <motion.div variants={sectionVariants}>
+          <Contact />
+        </motion.div>
       </main>
       <Footer />
-    </div>
+    </motion.div>
   );
 };
 

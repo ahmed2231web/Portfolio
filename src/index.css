@@ -69,6 +69,12 @@
   ::selection {
     @apply bg-primary/30 text-primary;
   }
+  
+  /* Add glitch effect to text on selection */
+  ::selection {
+    background: rgba(253, 238, 48, 0.3);
+    text-shadow: 2px 2px rgba(253, 238, 48, 0.5), -2px -2px rgba(255, 255, 255, 0.25);
+  }
 }
 
 @layer utilities {
@@ -372,6 +378,182 @@
   .btn-hover-slide:hover::after {
     left: 100%;
   }
+  
+  /* New futuristic animations and effects */
+  .data-glow {
+    box-shadow: 
+      0 0 10px rgba(253, 238, 48, 0.5),
+      0 0 20px rgba(253, 238, 48, 0.3),
+      0 0 30px rgba(253, 238, 48, 0.1);
+    animation: data-glow 4s infinite alternate;
+  }
+  
+  .glitch-effect {
+    position: relative;
+    animation: glitch 3s infinite;
+  }
+  
+  .glitch-effect::before,
+  .glitch-effect::after {
+    content: attr(data-text);
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    opacity: 0.8;
+  }
+  
+  .glitch-effect::before {
+    animation: glitch-anim-1 4s infinite linear alternate-reverse;
+    text-shadow: 1px 0 #00ffea;
+    clip: rect(44px, 450px, 56px, 0);
+  }
+  
+  .glitch-effect::after {
+    animation: glitch-anim-2 2s infinite linear alternate-reverse;
+    text-shadow: -1px 0 #fe3a7f;
+    clip: rect(44px, 450px, 46px, 0);
+  }
+  
+  .hover-glow {
+    transition: all 0.3s ease;
+  }
+  
+  .hover-glow:hover {
+    box-shadow: 
+      0 0 5px rgba(253, 238, 48, 0.5),
+      0 0 10px rgba(253, 238, 48, 0.3);
+    transform: translateY(-2px);
+  }
+  
+  .futuristic-border {
+    position: relative;
+    border: 1px solid rgba(253, 238, 48, 0.3);
+  }
+  
+  .futuristic-border::before {
+    content: '';
+    position: absolute;
+    top: -2px;
+    left: -2px;
+    right: -2px;
+    bottom: -2px;
+    z-index: -1;
+    background: linear-gradient(45deg, rgba(253, 238, 48, 0.5), transparent 20%, transparent 80%, rgba(253, 238, 48, 0.5));
+    border-radius: inherit;
+    animation: border-flow 3s infinite linear;
+  }
+  
+  .cyber-button {
+    position: relative;
+    overflow: hidden;
+    transition: all 0.3s ease;
+    border: 1px solid rgba(253, 238, 48, 0.3);
+  }
+  
+  .cyber-button::before {
+    content: '';
+    position: absolute;
+    top: -2px;
+    left: -2px;
+    right: -2px;
+    bottom: -2px;
+    z-index: -1;
+    background: linear-gradient(45deg, rgba(253, 238, 48, 0.5), transparent 20%, transparent 80%, rgba(253, 238, 48, 0.5));
+    border-radius: inherit;
+    animation: border-flow 3s infinite linear;
+  }
+  
+  .cyber-button::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(253, 238, 48, 0.2), transparent);
+    transition: all 0.6s ease;
+  }
+  
+  .cyber-button:hover::after {
+    left: 100%;
+  }
+  
+  .cyber-button:hover {
+    box-shadow: 
+      0 0 10px rgba(253, 238, 48, 0.5),
+      0 0 20px rgba(253, 238, 48, 0.3);
+    transform: translateY(-3px);
+  }
+  
+  .text-shimmer {
+    background: linear-gradient(
+      90deg,
+      rgba(253, 238, 48, 0.8) 0%,
+      rgba(255, 255, 255, 1) 50%,
+      rgba(253, 238, 48, 0.8) 100%
+    );
+    background-size: 200% auto;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+    animation: shimmer 3s linear infinite;
+  }
+  
+  .matrix-bg {
+    position: relative;
+    overflow: hidden;
+  }
+  
+  .matrix-bg::before {
+    content: "";
+    position: absolute;
+    top: -10%;
+    left: -10%;
+    width: 120%;
+    height: 120%;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='200' height='200' viewBox='0 0 200 200'%3E%3Ctext x='0' y='20' font-family='monospace' fill='rgba(253, 238, 48, 0.03)' transform='rotate(45 100 100)'%3E10101110100101%3C/text%3E%3Ctext x='40' y='40' font-family='monospace' fill='rgba(253, 238, 48, 0.03)' transform='rotate(45 100 100)'%3E01010010100111%3C/text%3E%3Ctext x='20' y='60' font-family='monospace' fill='rgba(253, 238, 48, 0.03)' transform='rotate(45 100 100)'%3E11010010011010%3C/text%3E%3C/svg%3E");
+    opacity: 0.5;
+    z-index: -1;
+    animation: matrix-shift 20s linear infinite;
+  }
+  
+  .floating {
+    animation: floating 3s ease-in-out infinite;
+  }
+  
+  .floating-delayed {
+    animation: floating 3s ease-in-out 1s infinite;
+  }
+  
+  .hover-tilt {
+    transition: transform 0.5s cubic-bezier(.17,.67,.83,.67);
+  }
+  
+  .hover-tilt:hover {
+    transform: perspective(1000px) rotateX(5deg) rotateY(5deg);
+  }
+  
+  .particle-bg {
+    position: relative;
+    overflow: hidden;
+  }
+  
+  .particle-bg::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    z-index: -1;
+    background-image: 
+      radial-gradient(circle at 20% 30%, rgba(253, 238, 48, 0.05) 0%, transparent 8%),
+      radial-gradient(circle at 60% 70%, rgba(253, 238, 48, 0.05) 0%, transparent 8%),
+      radial-gradient(circle at 90% 20%, rgba(253, 238, 48, 0.05) 0%, transparent 8%),
+      radial-gradient(circle at 30% 80%, rgba(253, 238, 48, 0.05) 0%, transparent 8%),
+      radial-gradient(circle at 70% 50%, rgba(253, 238, 48, 0.05) 0%, transparent 8%);
+  }
 }
 
 /* Keep existing keyframes and animations */
@@ -529,3 +711,40 @@
 .btn-glow:hover::after {
   opacity: 0.5;
 }
+
+/* New futuristic keyframes */
+@keyframes data-glow {
+  0%, 100% { 
+    box-shadow: 0 0 10px rgba(253, 238, 48, 0.5),
+                0 0 20px rgba(253, 238, 48, 0.3);
+  }
+  50% { 
+    box-shadow: 0 0 15px rgba(253, 238, 48, 0.7),
+                0 0 30px rgba(253, 238, 48, 0.5);
+  }
+}
+
+@keyframes glitch-anim-1 {
+  0% { clip: rect(30px, 450px, 36px, 0); }
+  10% { clip: rect(55px, 450px, 36px, 0); }
+  20% { clip: rect(22px, 450px, 46px, 0); }
+  30% { clip: rect(18px, 450px, 41px, 0); }
+  40% { clip: rect(46px, 450px, 15px, 0); }
+  50% { clip: rect(12px, 450px, 26px, 0); }
+  60% { clip: rect(34px, 450px, 34px, 0); }
+  70% { clip: rect(15px, 450px, 41px, 0); }
+  80% { clip: rect(40px, 450px, 25px, 0); }
+  90% { clip: rect(24px, 450px, 32px, 0); }
+  100% { clip: rect(28px, 450px, 36px, 0); }
+}
+
+@keyframes glitch-anim-2 {
+  0% { clip: rect(12px, 450px, 18px, 0); }
+  10% { clip: rect(25px, 450px, 16px, 0); }
+  20% { clip: rect(10px, 450px, 26px, 0); }
+  30% { clip: rect(38px, 450px, 21px, 0); }
+  40% { clip: rect(16px, 450px, 30px, 0); }
+  50% { clip: rect(32px, 450px, 16px, 0); }
+  60% { clip: rect(44px, 450px, 34px, 0); }
+  70% { clip: rect(35px, 450px, 21px, 0); }
+  8
