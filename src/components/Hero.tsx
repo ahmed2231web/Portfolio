@@ -5,7 +5,6 @@ import TypingEffect from './TypingEffect';
 import useScrollAnimation from '@/hooks/useScrollAnimation';
 import { motion } from 'framer-motion';
 import { useIsMobile } from '@/hooks/use-mobile';
-import Scene3D from './3D/Scene3D';
 import { Suspense } from 'react';
 
 const Hero = () => {
@@ -99,7 +98,7 @@ const Hero = () => {
               Hi, my name is
             </motion.div>
             <motion.h1 
-              className="text-4xl sm:text-5xl md:text-7xl font-bold gradient-text-yellow pb-2 neon-glow tracking-wider"
+              className="text-4xl sm:text-5xl md:text-7xl font-bold gradient-text-yellow pb-2 neon-glow-softer tracking-wider"
               initial={{ opacity: 0, x: -30 }}
               animate={{ opacity: 1, x: 0 }}
               transition={{ delay: 0.7, duration: 0.8 }}
@@ -162,28 +161,99 @@ const Hero = () => {
           </motion.div>
         </motion.div>
 
-        {/* Right side 3D laptop */}
+        {/* Right side animated content */}
         <motion.div
           initial={{ opacity: 0, scale: 0.8 }}
           animate={{ opacity: 1, scale: 1 }}
           transition={{ delay: 1.0, duration: 1, type: "spring" }}
-          className="h-[400px] w-full hidden lg:block relative"
+          className="h-[400px] w-full hidden lg:flex items-center justify-center relative"
         >
-          <div className="absolute inset-0 bg-black/20 backdrop-blur-sm rounded-lg border border-theme-yellow/20 shadow-neon-sm overflow-hidden">
-            <Suspense fallback={<div className="w-full h-full flex items-center justify-center">Loading 3D Model...</div>}>
-              <Scene3D />
-            </Suspense>
+          <div className="relative w-full h-full max-w-md flex items-center justify-center">
+            {/* Animated code blocks */}
+            <motion.div 
+              className="absolute w-64 h-64 bg-black/40 backdrop-blur-sm rounded-lg border border-theme-yellow/30 p-4 z-10 text-left"
+              initial={{ x: 0, y: 0, rotateZ: 0 }}
+              animate={{ 
+                x: [0, 20, 0], 
+                y: [0, -20, 0],
+                rotateZ: [0, 5, 0]
+              }}
+              transition={{ duration: 8, repeat: Infinity, ease: "easeInOut" }}
+            >
+              <div className="text-theme-yellow/90 font-mono text-sm">
+                <div className="flex items-center gap-1 mb-2">
+                  <div className="w-3 h-3 rounded-full bg-red-500"></div>
+                  <div className="w-3 h-3 rounded-full bg-yellow-500"></div>
+                  <div className="w-3 h-3 rounded-full bg-green-500"></div>
+                </div>
+                <motion.div 
+                  initial={{ opacity: 0 }}
+                  animate={{ opacity: 1 }}
+                  transition={{ delay: 1.5, duration: 0.8 }}
+                >
+                  <span className="text-blue-400">const</span> <span className="text-green-400">developer</span> = {"{"}
+                  <br />
+                  &nbsp;&nbsp;<span className="text-purple-400">name</span>: <span className="text-orange-400">'Ahmed'</span>,
+                  <br />
+                  &nbsp;&nbsp;<span className="text-purple-400">skills</span>: [<span className="text-orange-400">'React'</span>, <span className="text-orange-400">'Node'</span>, ...],
+                  <br />
+                  &nbsp;&nbsp;<span className="text-purple-400">passion</span>: <span className="text-orange-400">'Building amazing web apps'</span>
+                  <br />
+                  {"}"};
+                </motion.div>
+              </div>
+            </motion.div>
+            
+            <motion.div 
+              className="absolute w-48 h-48 bg-black/30 backdrop-blur-sm rounded-lg border border-theme-yellow/20 p-3 z-0 rotate-6"
+              style={{ left: '30%', bottom: '15%' }}
+              initial={{ x: 0, y: 0, rotateZ: 6 }}
+              animate={{ 
+                x: [0, -15, 0], 
+                y: [0, 15, 0],
+                rotateZ: [6, 0, 6]
+              }}
+              transition={{ duration: 7, repeat: Infinity, ease: "easeInOut", delay: 0.5 }}
+            >
+              <div className="text-theme-yellow/80 font-mono text-xs">
+                <div className="mb-2 pb-1 border-b border-theme-yellow/20 flex items-center">
+                  <CircuitBoard className="w-4 h-4 mr-1" />
+                  <span>design.css</span>
+                </div>
+                <motion.div
+                  initial={{ opacity: 0 }}
+                  animate={{ opacity: 1 }}
+                  transition={{ delay: 2, duration: 0.8 }}
+                >
+                  .container {"{"}
+                  <br />
+                  &nbsp;&nbsp;display: flex;
+                  <br />
+                  &nbsp;&nbsp;background: <span className="text-blue-400">#fdee30</span>;
+                  <br />
+                  {"}"}
+                </motion.div>
+              </div>
+            </motion.div>
             
             {/* Decorative elements */}
-            <div className="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-transparent via-theme-yellow to-transparent opacity-30"></div>
-            <div className="absolute bottom-0 left-0 w-full h-1 bg-gradient-to-r from-theme-yellow via-transparent to-theme-yellow opacity-30"></div>
             <motion.div 
-              className="absolute -right-8 -bottom-8 w-16 h-16 border border-theme-yellow/30 rounded-full"
+              className="absolute top-10 right-24 w-20 h-20 border-2 border-theme-yellow/30 rounded-full z-0"
               animate={{
                 scale: [1, 1.2, 1],
                 opacity: [0.3, 0.5, 0.3],
+                rotate: [0, 360, 0]
               }}
-              transition={{ duration: 5, repeat: Infinity, ease: "easeInOut" }}
+              transition={{ duration: 15, repeat: Infinity, ease: "linear" }}
+            />
+            
+            <motion.div 
+              className="absolute bottom-16 left-10 w-32 h-2 bg-gradient-to-r from-theme-yellow/50 to-transparent"
+              animate={{
+                scaleX: [1, 0.5, 1],
+                opacity: [0.5, 0.8, 0.5],
+              }}
+              transition={{ duration: 4, repeat: Infinity, ease: "easeInOut" }}
             />
           </div>
         </motion.div>

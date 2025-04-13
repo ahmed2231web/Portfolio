@@ -1,17 +1,13 @@
 
 import { Card } from '@/components/ui/card';
 import {
-  Layers,
+  Code,
   Server,
   GitBranch,
   PenTool,
   Zap,
-  Cpu,
-  Code,
   Database,
-  CircuitBoard,
   Globe,
-  FileCode,
   Palette
 } from 'lucide-react';
 import { motion } from 'framer-motion';
@@ -21,6 +17,7 @@ interface SkillCategory {
   icon: React.ReactNode;
   skills: string[];
   gradient: string;
+  iconBg: string;
 }
 
 const skillCategories: SkillCategory[] = [
@@ -28,25 +25,29 @@ const skillCategories: SkillCategory[] = [
     title: 'Frontend',
     icon: <Code size={24} strokeWidth={1.5} />,
     skills: ['HTML', 'CSS', 'JavaScript', 'TypeScript', 'React', 'Next.js', 'Tailwind CSS', 'Responsive Design'],
-    gradient: 'from-theme-yellow via-theme-yellow/50 to-transparent',
+    gradient: 'from-theme-yellow to-amber-500/50',
+    iconBg: 'bg-amber-500/20',
   },
   {
     title: 'Backend',
     icon: <Server size={24} strokeWidth={1.5} />,
     skills: ['Node.js', 'Express', 'RESTful APIs', 'GraphQL', 'MongoDB', 'PostgreSQL', 'Authentication'],
-    gradient: 'from-theme-yellow via-theme-yellow/50 to-transparent',
+    gradient: 'from-theme-yellow to-emerald-500/50',
+    iconBg: 'bg-emerald-500/20',
   },
   {
     title: 'Tools & Methods',
     icon: <GitBranch size={24} strokeWidth={1.5} />,
     skills: ['Git', 'GitHub', 'VS Code', 'Agile', 'CI/CD', 'Testing', 'Performance Optimization'],
-    gradient: 'from-theme-yellow via-theme-yellow/50 to-transparent',
+    gradient: 'from-theme-yellow to-blue-500/50',
+    iconBg: 'bg-blue-500/20',
   },
   {
     title: 'Design',
     icon: <PenTool size={24} strokeWidth={1.5} />,
     skills: ['Figma', 'Adobe XD', 'UI/UX', 'Wireframing', 'Prototyping', 'Responsive Design'],
-    gradient: 'from-theme-yellow via-theme-yellow/50 to-transparent',
+    gradient: 'from-theme-yellow to-purple-500/50',
+    iconBg: 'bg-purple-500/20',
   },
 ];
 
@@ -70,36 +71,6 @@ const Skills = () => {
         duration: 0.5,
       },
     },
-  };
-
-  // 3D rotation effect on mouse move
-  const handleMouseMove = (e: React.MouseEvent<HTMLDivElement>) => {
-    const card = e.currentTarget;
-    const rect = card.getBoundingClientRect();
-    const x = e.clientX - rect.left;
-    const y = e.clientY - rect.top;
-    const centerX = rect.width / 2;
-    const centerY = rect.height / 2;
-    const rotateX = (y - centerY) / 20;
-    const rotateY = (centerX - x) / 20;
-    
-    card.style.transform = `perspective(1000px) rotateX(${rotateX}deg) rotateY(${rotateY}deg) scale3d(1.02, 1.02, 1.02)`;
-    
-    // Create a scanline effect when hovering
-    const scanline = card.querySelector('.scanline') as HTMLElement;
-    if (scanline) {
-      scanline.style.opacity = '1';
-    }
-  };
-  
-  const handleMouseLeave = (e: React.MouseEvent<HTMLDivElement>) => {
-    e.currentTarget.style.transform = 'perspective(1000px) rotateX(0deg) rotateY(0deg) scale3d(1, 1, 1)';
-    
-    // Hide scanline on mouse leave
-    const scanline = e.currentTarget.querySelector('.scanline') as HTMLElement;
-    if (scanline) {
-      scanline.style.opacity = '0';
-    }
   };
 
   return (
@@ -127,10 +98,10 @@ const Skills = () => {
             <Zap className="w-8 h-8 text-theme-yellow relative" />
           </div>
           
-          <h2 className="text-3xl md:text-5xl font-bold mb-6 gradient-text-yellow neon-glow">
+          <h2 className="text-3xl md:text-5xl font-bold mb-6 gradient-text-yellow-soft neon-glow-softer">
             Skills & Expertise
           </h2>
-          <p className="text-lg text-theme-white/80 max-w-2xl mx-auto">
+          <p className="text-lg text-theme-white/70 max-w-2xl mx-auto">
             Technologies and tools I've mastered to create exceptional digital experiences
           </p>
           <div className="w-24 h-1 bg-gradient-to-r from-theme-yellow via-theme-white to-theme-yellow/30 mx-auto mt-6 rounded-full shadow-neon-sm"></div>
@@ -145,61 +116,63 @@ const Skills = () => {
         >
           {skillCategories.map((category, index) => (
             <motion.div key={category.title} variants={itemVariants}>
-              <Card 
-                className="overflow-hidden bg-theme-gray-dark/30 backdrop-blur-sm border border-theme-yellow/20 p-6 h-full transform transition-all duration-500 hover:shadow-neon-sm group relative"
-                onMouseMove={handleMouseMove}
-                onMouseLeave={handleMouseLeave}
+              <motion.div 
+                whileHover={{ scale: 1.02 }}
+                transition={{ type: "spring", stiffness: 300 }}
+                className="group"
               >
-                {/* Futuristic scanline effect */}
-                <div className="scanline absolute inset-0 overflow-hidden opacity-0 transition-opacity duration-300 pointer-events-none">
-                  <div className="absolute h-[1px] w-full bg-gradient-to-r from-transparent via-theme-yellow/50 to-transparent transform translate-y-0 animate-[scanline_2s_linear_infinite]"></div>
-                </div>
-                
-                {/* Tech border */}
-                <div className="absolute inset-0 border border-theme-yellow/20 rounded-md z-0"></div>
-                <div className="absolute top-0 left-0 w-0 h-0 border-t-[12px] border-l-[12px] border-t-theme-yellow/40 border-l-theme-yellow/40"></div>
-                <div className="absolute top-0 right-0 w-0 h-0 border-t-[12px] border-r-[12px] border-t-theme-yellow/40 border-r-theme-yellow/40"></div>
-                <div className="absolute bottom-0 left-0 w-0 h-0 border-b-[12px] border-l-[12px] border-b-theme-yellow/40 border-l-theme-yellow/40"></div>
-                <div className="absolute bottom-0 right-0 w-0 h-0 border-b-[12px] border-r-[12px] border-b-theme-yellow/40 border-r-theme-yellow/40"></div>
-                
-                {/* Content with relative positioning for proper layering */}
-                <div className="relative z-10">
-                  <div className="flex items-center mb-5">
-                    <div className={`p-3 rounded-xl bg-gradient-to-br ${category.gradient} mr-4 text-black transform transition-all duration-300 group-hover:scale-110 shadow-neon-sm group-hover:shadow-neon-md`}>
-                      {category.icon}
-                    </div>
-                    <h3 className="text-2xl font-bold text-theme-white group-hover:text-theme-yellow transition-colors neon-glow">{category.title}</h3>
+                <Card className="overflow-hidden bg-black/60 backdrop-blur-md border border-white/10 p-6 h-full relative shadow-lg">
+                  {/* Gradient border effect */}
+                  <div className="absolute inset-0 rounded-lg p-[1px] overflow-hidden">
+                    <div className={`absolute inset-0 bg-gradient-to-br ${category.gradient} opacity-30`}></div>
                   </div>
                   
-                  <div className="flex flex-wrap gap-2">
-                    {category.skills.map((skill, i) => (
-                      <motion.span 
-                        key={skill} 
-                        className="bg-black/50 border border-theme-yellow/30 px-3 py-1.5 rounded-full text-sm font-medium transition-all hover:bg-theme-yellow/20 hover:scale-105 hover:border-theme-yellow cursor-default"
-                        initial={{ opacity: 0, scale: 0.8 }}
-                        animate={{ opacity: 1, scale: 1 }}
-                        transition={{ delay: 0.05 * i, duration: 0.3 }}
-                      >
-                        {skill}
-                      </motion.span>
-                    ))}
+                  {/* Glass effect overlay */}
+                  <div className="absolute top-0 left-0 right-0 h-16 bg-white/5"></div>
+                  
+                  {/* Glowing corner accents */}
+                  <div className="absolute top-0 left-0 w-4 h-4 border-t border-l border-theme-yellow/40"></div>
+                  <div className="absolute top-0 right-0 w-4 h-4 border-t border-r border-theme-yellow/40"></div>
+                  <div className="absolute bottom-0 left-0 w-4 h-4 border-b border-l border-theme-yellow/40"></div>
+                  <div className="absolute bottom-0 right-0 w-4 h-4 border-b border-r border-theme-yellow/40"></div>
+                  
+                  {/* Scanline animation */}
+                  <div className="absolute inset-0 overflow-hidden opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                    <div className="absolute w-full h-[1px] bg-gradient-to-r from-transparent via-theme-yellow/50 to-transparent animate-scanline"></div>
                   </div>
-                </div>
-
-                {/* Digital circuit corner effects */}
-                <svg width="20" height="20" className="absolute top-0 left-0 text-theme-yellow/40" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                  <path d="M8 2H2V8" stroke="currentColor" strokeWidth="1" strokeLinecap="round" strokeLinejoin="round"/>
-                </svg>
-                <svg width="20" height="20" className="absolute top-0 right-0 text-theme-yellow/40" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                  <path d="M16 2H22V8" stroke="currentColor" strokeWidth="1" strokeLinecap="round" strokeLinejoin="round"/>
-                </svg>
-                <svg width="20" height="20" className="absolute bottom-0 left-0 text-theme-yellow/40" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                  <path d="M8 22H2V16" stroke="currentColor" strokeWidth="1" strokeLinecap="round" strokeLinejoin="round"/>
-                </svg>
-                <svg width="20" height="20" className="absolute bottom-0 right-0 text-theme-yellow/40" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                  <path d="M16 22H22V16" stroke="currentColor" strokeWidth="1" strokeLinecap="round" strokeLinejoin="round"/>
-                </svg>
-              </Card>
+                  
+                  {/* Content */}
+                  <div className="relative z-10">
+                    <div className="flex items-center mb-6">
+                      <div className={`flex items-center justify-center w-12 h-12 rounded-lg ${category.iconBg} mr-4 relative overflow-hidden group-hover:scale-110 transition-transform duration-300`}>
+                        <div className="absolute inset-0 bg-gradient-to-br from-transparent to-theme-yellow/30 opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+                        <span className="relative text-theme-yellow">{category.icon}</span>
+                      </div>
+                      <h3 className="text-xl font-bold text-theme-white/90 group-hover:text-theme-yellow transition-colors">
+                        {category.title}
+                      </h3>
+                    </div>
+                    
+                    <div className="flex flex-wrap gap-2">
+                      {category.skills.map((skill, i) => (
+                        <motion.span 
+                          key={skill} 
+                          className="bg-black/70 border border-white/10 px-3 py-1.5 rounded-full text-sm font-medium transition-all hover:bg-theme-yellow/10 hover:border-theme-yellow/50 cursor-default text-white/80 hover:text-theme-yellow"
+                          initial={{ opacity: 0, scale: 0.8 }}
+                          animate={{ opacity: 1, scale: 1 }}
+                          transition={{ delay: 0.05 * i, duration: 0.3 }}
+                          whileHover={{ 
+                            scale: 1.05,
+                            transition: { duration: 0.2 }
+                          }}
+                        >
+                          {skill}
+                        </motion.span>
+                      ))}
+                    </div>
+                  </div>
+                </Card>
+              </motion.div>
             </motion.div>
           ))}
         </motion.div>

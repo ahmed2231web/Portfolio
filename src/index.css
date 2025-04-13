@@ -255,6 +255,13 @@
                  0 0 20px rgba(253, 238, 48, 0.2);
   }
   
+  /* Softer glow effect for better readability */
+  .neon-glow-softer {
+    text-shadow: 0 0 5px rgba(253, 238, 48, 0.5), 
+                 0 0 10px rgba(253, 238, 48, 0.3), 
+                 0 0 15px rgba(253, 238, 48, 0.1);
+  }
+  
   .neon-box {
     box-shadow: 0 0 5px rgba(253, 238, 48, 0.5), 
                 0 0 10px rgba(253, 238, 48, 0.3), 
@@ -308,46 +315,62 @@
     z-index: 1;
   }
   
+  /* Softer text gradients for better readability */
   .gradient-text-yellow {
     @apply bg-gradient-to-r from-[#fdee30] via-[#fff8a0] to-[#fdee30] bg-clip-text text-transparent;
     filter: drop-shadow(0 0 8px rgba(253, 238, 48, 0.5));
   }
 
-  /* 3D scene specific styles */
-  .scene-container {
-    position: relative;
-    width: 100%;
-    height: 100%;
-    overflow: hidden;
+  .gradient-text-yellow-soft {
+    @apply bg-gradient-to-r from-[#fdee30] via-[#fff8a0] to-[#fdee30] bg-clip-text text-transparent;
+    filter: drop-shadow(0 0 5px rgba(253, 238, 48, 0.3));
+    opacity: 0.9;
+  }
+
+  /* New glass card effect */
+  .glass-card {
+    background: rgba(0, 0, 0, 0.4);
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.36);
+  }
+
+  /* Skill tag hover effect */
+  .skill-tag {
+    @apply px-3 py-1 rounded-full text-sm transition-all duration-200;
   }
   
-  .scene-overlay {
-    position: absolute;
-    inset: 0;
-    pointer-events: none;
-    background: radial-gradient(circle at center, transparent 30%, rgba(0, 0, 0, 0.5) 100%);
+  .skill-tag:hover {
+    @apply bg-theme-yellow/20 -translate-y-1 shadow-lg;
+  }
+
+  /* New form focus effect */
+  .form-focus-effect:focus {
+    @apply border-theme-yellow ring-2 ring-theme-yellow/30;
+    box-shadow: 0 0 0 2px rgba(253, 238, 48, 0.2);
+  }
+  
+  /* New button hover animation */
+  .btn-hover-slide {
+    position: relative;
+    overflow: hidden;
     z-index: 1;
   }
   
-  /* Futuristic scanner effect */
-  .scanner-line {
+  .btn-hover-slide::after {
+    content: "";
     position: absolute;
+    top: 0;
+    left: -100%;
     width: 100%;
-    height: 2px;
-    background: linear-gradient(90deg, transparent, rgba(253, 238, 48, 0.8), transparent);
-    z-index: 2;
-    animation: scan 3s ease-in-out infinite;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+    transition: all 0.5s;
+    z-index: -1;
   }
   
-  @keyframes scan {
-    0% { top: 0; opacity: 0; }
-    25% { opacity: 0.8; }
-    50% { top: 100%; opacity: 0; }
-    100% { top: 0; opacity: 0; }
-  }
-  
-  .gradient-text-yellow {
-    @apply bg-gradient-to-r from-[#fdee30] via-[#fff8a0] to-[#fdee30] bg-clip-text text-transparent;
+  .btn-hover-slide:hover::after {
+    left: 100%;
   }
 }
 
@@ -420,16 +443,89 @@
 }
 
 .animate-scanline {
-  position: relative;
-  overflow: hidden;
+  animation: scanline 3s linear infinite;
 }
 
-.animate-scanline::after {
-  content: '';
+/* New slide-up animation */
+@keyframes slide-up {
+  0% {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.animate-slide-up {
+  animation: slide-up 0.6s ease forwards;
+}
+
+/* New slide-in-left animation */
+@keyframes slide-in-left {
+  0% {
+    opacity: 0;
+    transform: translateX(-30px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+.animate-slide-in-left {
+  animation: slide-in-left 0.6s ease forwards;
+}
+
+/* New slide-in-right animation */
+@keyframes slide-in-right {
+  0% {
+    opacity: 0;
+    transform: translateX(30px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+.animate-slide-in-right {
+  animation: slide-in-right 0.6s ease forwards;
+}
+
+/* New wave-background animation */
+@keyframes wave-background {
+  0%, 100% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+}
+
+.animate-wave-background {
+  animation: wave-background 20s ease infinite;
+  background-size: 400% 400%;
+}
+
+/* Button glow effect */
+.btn-glow {
+  position: relative;
+}
+
+.btn-glow::after {
+  content: "";
   position: absolute;
-  width: 100%;
-  height: 4px;
-  background: linear-gradient(90deg, transparent, rgba(253, 238, 48, 0.5), transparent);
-  animation: scanline 3s linear infinite;
-  z-index: 1;
+  inset: -3px;
+  background: linear-gradient(45deg, #fdee30, transparent, #fdee30);
+  filter: blur(8px);
+  opacity: 0;
+  transition: opacity 0.3s ease;
+  z-index: -1;
+  border-radius: inherit;
+}
+
+.btn-glow:hover::after {
+  opacity: 0.5;
 }
