@@ -64,15 +64,21 @@ const Header = () => {
       <div className="max-w-7xl mx-auto flex items-center justify-between">
         <motion.a 
           href="#home" 
-          className="text-2xl font-bold gradient-text-yellow neon-glow relative"
+          className="text-2xl font-bold relative group"
           initial={{ opacity: 0, x: -20 }}
           animate={{ opacity: 1, x: 0 }}
           transition={{ duration: 0.5 }}
         >
-          <span className="relative z-10">Ahmed</span>
-          {/* Decorative circuit element */}
-          <div className="absolute -inset-1 rounded-md border border-theme-yellow/20 -z-10 opacity-0 group-hover:opacity-100 transition-opacity"></div>
-          <CircuitBoard className="absolute -right-6 -bottom-2 h-4 w-4 text-theme-yellow/40" />
+          <span className="gradient-text-yellow text-3xl font-extrabold relative z-10 neon-glow tracking-wider">
+            Ahmed
+            <span className="absolute -bottom-1 left-0 w-full h-0.5 bg-theme-yellow/60 rounded-full transform transition-all duration-300 group-hover:h-1"></span>
+          </span>
+          
+          {/* Enhanced futuristic elements */}
+          <div className="absolute -inset-1 rounded-md border border-theme-yellow/30 -z-10 opacity-0 group-hover:opacity-100 transition-opacity"></div>
+          <div className="absolute -inset-2 bg-theme-yellow/5 rounded-lg blur-md -z-20 opacity-0 group-hover:opacity-100 transition-opacity"></div>
+          <CircuitBoard className="absolute -right-6 -bottom-2 h-4 w-4 text-theme-yellow animate-pulse" />
+          <span className="absolute -right-1 top-0 h-2 w-2 bg-theme-yellow rounded-full animate-ping opacity-70"></span>
         </motion.a>
 
         {/* Desktop Navigation */}

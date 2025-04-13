@@ -5,6 +5,8 @@ import TypingEffect from './TypingEffect';
 import useScrollAnimation from '@/hooks/useScrollAnimation';
 import { motion } from 'framer-motion';
 import { useIsMobile } from '@/hooks/use-mobile';
+import Scene3D from './3D/Scene3D';
+import { Suspense } from 'react';
 
 const Hero = () => {
   const { ref: subtitleRef, isVisible: isSubtitleVisible } = useScrollAnimation({
@@ -34,7 +36,7 @@ const Hero = () => {
         {/* Circuit board lines */}
         <div className="absolute inset-0 circuit-overlay"></div>
         
-        {/* Geometric elements */}
+        {/* Enhanced futuristic geometric elements */}
         <motion.div 
           className="absolute top-20 right-10 w-16 h-32 border-2 border-theme-yellow/20"
           animate={{
@@ -51,9 +53,27 @@ const Hero = () => {
           }}
           transition={{ duration: 10, repeat: Infinity, ease: "easeInOut" }}
         />
+        <motion.div
+          className="absolute top-1/3 right-1/4 w-32 h-2 bg-theme-yellow/10"
+          animate={{
+            width: ['8rem', '2rem', '8rem'],
+            opacity: [0.2, 0.5, 0.2]
+          }}
+          transition={{ duration: 5, repeat: Infinity, ease: "easeInOut" }}
+        />
+        <motion.div
+          className="absolute top-2/3 left-1/3 w-16 h-16 border border-theme-yellow/20 rounded-full"
+          animate={{
+            borderWidth: ['1px', '2px', '1px'],
+            opacity: [0.2, 0.4, 0.2],
+            rotate: [0, 180, 360]
+          }}
+          transition={{ duration: 15, repeat: Infinity, ease: "linear" }}
+        />
       </div>
       
-      <div className="max-w-7xl mx-auto w-full relative">
+      <div className="max-w-7xl mx-auto w-full relative grid grid-cols-1 lg:grid-cols-2 gap-8 items-center">
+        {/* Left side content */}
         <motion.div 
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
@@ -79,7 +99,7 @@ const Hero = () => {
               Hi, my name is
             </motion.div>
             <motion.h1 
-              className="text-4xl sm:text-5xl md:text-7xl font-bold gradient-text-yellow pb-2 neon-glow"
+              className="text-4xl sm:text-5xl md:text-7xl font-bold gradient-text-yellow pb-2 neon-glow tracking-wider"
               initial={{ opacity: 0, x: -30 }}
               animate={{ opacity: 1, x: 0 }}
               transition={{ delay: 0.7, duration: 0.8 }}
@@ -140,6 +160,32 @@ const Hero = () => {
               </Button>
             </a>
           </motion.div>
+        </motion.div>
+
+        {/* Right side 3D laptop */}
+        <motion.div
+          initial={{ opacity: 0, scale: 0.8 }}
+          animate={{ opacity: 1, scale: 1 }}
+          transition={{ delay: 1.0, duration: 1, type: "spring" }}
+          className="h-[400px] w-full hidden lg:block relative"
+        >
+          <div className="absolute inset-0 bg-black/20 backdrop-blur-sm rounded-lg border border-theme-yellow/20 shadow-neon-sm overflow-hidden">
+            <Suspense fallback={<div className="w-full h-full flex items-center justify-center">Loading 3D Model...</div>}>
+              <Scene3D />
+            </Suspense>
+            
+            {/* Decorative elements */}
+            <div className="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-transparent via-theme-yellow to-transparent opacity-30"></div>
+            <div className="absolute bottom-0 left-0 w-full h-1 bg-gradient-to-r from-theme-yellow via-transparent to-theme-yellow opacity-30"></div>
+            <motion.div 
+              className="absolute -right-8 -bottom-8 w-16 h-16 border border-theme-yellow/30 rounded-full"
+              animate={{
+                scale: [1, 1.2, 1],
+                opacity: [0.3, 0.5, 0.3],
+              }}
+              transition={{ duration: 5, repeat: Infinity, ease: "easeInOut" }}
+            />
+          </div>
         </motion.div>
       </div>
       

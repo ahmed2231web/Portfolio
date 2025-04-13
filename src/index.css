@@ -249,9 +249,10 @@
 
   /* Futuristic UI utilities */
   .neon-glow {
-    text-shadow: 0 0 5px rgba(253, 238, 48, 0.5), 
-                 0 0 10px rgba(253, 238, 48, 0.3), 
-                 0 0 15px rgba(253, 238, 48, 0.2);
+    text-shadow: 0 0 5px rgba(253, 238, 48, 0.7), 
+                 0 0 10px rgba(253, 238, 48, 0.5), 
+                 0 0 15px rgba(253, 238, 48, 0.3),
+                 0 0 20px rgba(253, 238, 48, 0.2);
   }
   
   .neon-box {
@@ -301,10 +302,48 @@
     left: 0;
     right: 0;
     bottom: 0;
-    background-image: url("data:image/svg+xml,%3Csvg width='100' height='100' viewBox='0 0 100 100' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M20 10 H80 V20 H70 V30 H30 V20 H20 V10 Z M80 70 V80 H20 V70 H30 V60 H70 V70 H80 Z' fill='none' stroke='rgba(253, 238, 48, 0.1)' stroke-width='1'/%3E%3C/svg%3E");
-    opacity: 0.3;
+    background-image: url("data:image/svg+xml,%3Csvg width='100' height='100' viewBox='0 0 100 100' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M20 10 H80 V20 H70 V30 H30 V20 H20 V10 Z M80 70 V80 H20 V70 H30 V60 H70 V70 H80 Z M40 40 H60 V50 H40 V40 Z' fill='none' stroke='rgba(253, 238, 48, 0.15)' stroke-width='1'/%3E%3C/svg%3E");
+    opacity: 0.4;
     pointer-events: none;
     z-index: 1;
+  }
+  
+  .gradient-text-yellow {
+    @apply bg-gradient-to-r from-[#fdee30] via-[#fff8a0] to-[#fdee30] bg-clip-text text-transparent;
+    filter: drop-shadow(0 0 8px rgba(253, 238, 48, 0.5));
+  }
+
+  /* 3D scene specific styles */
+  .scene-container {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+  }
+  
+  .scene-overlay {
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
+    background: radial-gradient(circle at center, transparent 30%, rgba(0, 0, 0, 0.5) 100%);
+    z-index: 1;
+  }
+  
+  /* Futuristic scanner effect */
+  .scanner-line {
+    position: absolute;
+    width: 100%;
+    height: 2px;
+    background: linear-gradient(90deg, transparent, rgba(253, 238, 48, 0.8), transparent);
+    z-index: 2;
+    animation: scan 3s ease-in-out infinite;
+  }
+  
+  @keyframes scan {
+    0% { top: 0; opacity: 0; }
+    25% { opacity: 0.8; }
+    50% { top: 100%; opacity: 0; }
+    100% { top: 0; opacity: 0; }
   }
   
   .gradient-text-yellow {
