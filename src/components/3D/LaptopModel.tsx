@@ -1,7 +1,6 @@
 
 import { useRef, useState, useEffect } from 'react';
 import { useFrame } from '@react-three/fiber';
-import { useGLTF } from '@react-three/drei';
 import * as THREE from 'three';
 
 interface LaptopModelProps {
@@ -86,24 +85,32 @@ export default function LaptopModel({
       {/* Laptop base */}
       <mesh castShadow receiveShadow>
         <boxGeometry args={[1.5, 0.1, 1]} />
-        <meshStandardMaterial color="#111111" metalness={0.8} roughness={0.2} />
+        <meshStandardMaterial 
+          color="#111111" 
+          metalness={0.8} 
+          roughness={0.2} 
+        />
       </mesh>
       
       {/* Laptop screen */}
       <group position={[0, 0.55, -0.45]} rotation={[Math.PI / 6, 0, 0]}>
         <mesh castShadow receiveShadow>
           <boxGeometry args={[1.5, 1, 0.05]} />
-          <meshStandardMaterial color="#111111" metalness={0.8} roughness={0.2} />
+          <meshStandardMaterial 
+            color="#111111" 
+            metalness={0.8} 
+            roughness={0.2} 
+          />
         </mesh>
         
         {/* Screen display */}
         <mesh position={[0, 0, 0.03]}>
           <planeGeometry args={[1.4, 0.9]} />
-          <meshBasicMaterial color="#fdee30" opacity={0.8} transparent>
-            <circuitBoard 
-              scale={0.6} 
-              position={[0, 0, 0.01]}
-            />
+          <meshBasicMaterial 
+            color="#fdee30" 
+            opacity={0.8} 
+            transparent
+          >
           </meshBasicMaterial>
         </mesh>
       </group>
@@ -117,7 +124,11 @@ export default function LaptopModel({
       {/* Logo on the back of screen */}
       <mesh position={[0, 0.55, -0.48]} rotation={[Math.PI / 6, 0, 0]}>
         <circleGeometry args={[0.15, 32]} />
-        <meshStandardMaterial color="#fdee30" emissive="#fdee30" emissiveIntensity={0.5} />
+        <meshStandardMaterial 
+          color="#fdee30" 
+          emissive="#fdee30" 
+          emissiveIntensity={0.5} 
+        />
       </mesh>
     </group>
   );

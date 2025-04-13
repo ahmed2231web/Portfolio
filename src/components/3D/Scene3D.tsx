@@ -1,6 +1,6 @@
 
 import { Canvas } from '@react-three/fiber';
-import { OrbitControls, Environment, Effects, PerspectiveCamera } from '@react-three/drei';
+import { OrbitControls, Environment, PerspectiveCamera } from '@react-three/drei';
 import { Suspense } from 'react';
 import LaptopModel from './LaptopModel';
 
@@ -28,10 +28,6 @@ const Scene3D: React.FC<Scene3DProps> = ({ className }) => {
             minPolarAngle={Math.PI / 3}
             maxPolarAngle={Math.PI / 2}
           />
-          
-          <Effects>
-            {/* Add glowing effect */}
-          </Effects>
         </Suspense>
       </Canvas>
     </div>
