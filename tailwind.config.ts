@@ -1,4 +1,3 @@
-
 import type { Config } from "tailwindcss";
 
 export default {
@@ -53,24 +52,14 @@ export default {
 					DEFAULT: 'hsl(var(--card))',
 					foreground: 'hsl(var(--card-foreground))'
 				},
-				// Updated theme palette with brighter, more vibrant colors
+				// New futuristic theme colors
 				'theme': {
-					'white': '#ffffff',      // Pure White
-					'blue': '#1E90FF',       // Dodger Blue (brighter)
-					'cornsilk': '#fff8dc',   // Brighter Cornsilk
-					'teal': '#20E0D0',       // Brighter Turquoise
-					'charcoal': '#444654',   // Darker Charcoal for better contrast
-					'50': '#ebf8ff',
-					'100': '#d1eefc',
-					'200': '#a7d8fd',
-					'300': '#7cc2fc',
-					'400': '#52acfa',
-					'500': '#2895f9',
-					'600': '#0a7ae0',
-					'700': '#0862b9',
-					'800': '#064a91',
-					'900': '#053a76',
-					'950': '#042a58',
+					'black': '#000000',    // Pure Black
+					'white': '#fefefe',    // Off-White
+					'yellow': '#fdee30',   // Bright Yellow
+					'gray-dark': '#222222',
+					'gray-mid': '#444444',
+					'gray-light': '#888888',
 				},
 				sidebar: {
 					DEFAULT: 'hsl(var(--sidebar-background))',
@@ -227,11 +216,13 @@ export default {
 				'gradient-radial': 'radial-gradient(var(--tw-gradient-stops))',
 				'gradient-conic': 'conic-gradient(from 180deg at 50% 50%, var(--tw-gradient-stops))',
 				'gradient-shine': 'linear-gradient(45deg, transparent 25%, rgba(255, 255, 255, 0.1) 50%, transparent 75%, transparent 100%)',
+				'tech-grid': 'linear-gradient(to right, rgba(253, 238, 48, 0.05) 1px, transparent 1px), linear-gradient(to bottom, rgba(253, 238, 48, 0.05) 1px, transparent 1px)',
+				'circuit-pattern': "url(\"data:image/svg+xml,%3Csvg width='100' height='100' viewBox='0 0 100 100' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M20 10 H80 V20 H70 V30 H30 V20 H20 V10 Z M80 70 V80 H20 V70 H30 V60 H70 V70 H80 Z' fill='none' stroke='rgba(253, 238, 48, 0.1)' stroke-width='1'/%3E%3C/svg%3E\")",
 			},
 			boxShadow: {
-				'glow-sm': '0 0 10px rgba(79, 131, 251, 0.3)',
-				'glow-md': '0 0 20px rgba(79, 131, 251, 0.5)',
-				'glow-lg': '0 0 30px rgba(79, 131, 251, 0.7)',
+				'neon-sm': '0 0 5px rgba(253, 238, 48, 0.5), 0 0 10px rgba(253, 238, 48, 0.3)',
+				'neon-md': '0 0 10px rgba(253, 238, 48, 0.5), 0 0 20px rgba(253, 238, 48, 0.3), 0 0 30px rgba(253, 238, 48, 0.2)',
+				'neon-lg': '0 0 15px rgba(253, 238, 48, 0.5), 0 0 30px rgba(253, 238, 48, 0.3), 0 0 45px rgba(253, 238, 48, 0.2)',
 			},
 		}
 	},

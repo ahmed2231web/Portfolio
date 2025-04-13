@@ -1,92 +1,76 @@
 
-import { Moon, Sun, Sparkle, Star } from 'lucide-react';
-import { useEffect, useState } from 'react';
+import { Zap, Star, Sparkles, CircuitBoard } from 'lucide-react';
+import { useEffect } from 'react';
 import { Button } from "@/components/ui/button";
 import { motion } from 'framer-motion';
 
 const ThemeToggle = () => {
-  const [theme, setTheme] = useState<'light' | 'dark'>('light');
-
+  // Since we're only using dark mode, we'll set it on component mount
   useEffect(() => {
-    const savedTheme = localStorage.getItem('theme') as 'light' | 'dark' | null;
-    const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
-    
-    if (savedTheme) {
-      setTheme(savedTheme);
-      document.documentElement.classList.toggle('dark', savedTheme === 'dark');
-    } else if (prefersDark) {
-      setTheme('dark');
-      document.documentElement.classList.add('dark');
-    }
+    document.documentElement.classList.add('dark');
   }, []);
 
-  const toggleTheme = () => {
-    const newTheme = theme === 'light' ? 'dark' : 'light';
-    setTheme(newTheme);
-    document.documentElement.classList.toggle('dark', newTheme === 'dark');
-    localStorage.setItem('theme', newTheme);
+  // Create a decorative button that shows a futuristic animation on click
+  const handleClick = () => {
+    // Just trigger the animation without changing theme
+    const button = document.getElementById('theme-button');
+    if (button) {
+      button.classList.remove('animate-pulse-yellow');
+      setTimeout(() => {
+        button.classList.add('animate-pulse-yellow');
+      }, 10);
+    }
   };
 
   return (
     <Button 
       variant="ghost" 
       size="icon"
-      onClick={toggleTheme}
-      className="w-10 h-10 sm:w-12 sm:h-12 rounded-full relative overflow-hidden border border-theme-blue/20 shadow-md hover:shadow-lg transition-all"
-      aria-label={`Switch to ${theme === 'light' ? 'dark' : 'light'} theme`}
+      id="theme-button"
+      onClick={handleClick}
+      className="w-10 h-10 sm:w-12 sm:h-12 rounded-full relative overflow-hidden border border-theme-yellow/20 shadow-neon-sm hover:shadow-neon-md transition-all"
+      aria-label="Theme button"
     >
       <motion.div
-        initial={false}
-        animate={{ rotate: theme === 'dark' ? 180 : 0 }}
-        transition={{ duration: 0.5, type: 'spring', stiffness: 200 }}
+        animate={{ rotate: 360 }}
+        transition={{ duration: 20, repeat: Infinity, ease: "linear" }}
         className="absolute inset-0 flex items-center justify-center"
-        style={{ perspective: '800px' }}
       >
-        {theme === 'light' ? (
-          <div className="relative transform-gpu transition-all hover:scale-110">
-            <Sun className="h-5 w-5 sm:h-6 sm:w-6 text-theme-blue transform-gpu transition-transform hover:rotate-12" />
-            <motion.div
-              initial={{ scale: 0, opacity: 0 }}
-              animate={{ scale: [0, 1.2, 1], opacity: [0, 1, 0] }}
-              transition={{ 
-                duration: 2,
-                repeat: Infinity,
-                repeatDelay: 3
-              }}
-              className="absolute -inset-3 rounded-full border-2 border-theme-blue/30"
-            />
-            <motion.div
-              initial={{ opacity: 0, x: -15, y: -15 }}
-              animate={{ opacity: [0, 1, 0], x: [-15, -5, 5], y: [-15, -10, -20] }}
-              transition={{ duration: 3, repeat: Infinity, repeatDelay: 2 }}
-              className="absolute -top-1 -right-3"
-            >
-              <Star className="h-2 w-2 sm:h-3 sm:w-3 text-theme-blue" strokeWidth={1} />
-            </motion.div>
-          </div>
-        ) : (
-          <div className="relative transform-gpu transition-all hover:scale-110">
-            <Moon className="h-5 w-5 sm:h-6 sm:w-6 text-theme-teal transform-gpu transition-transform hover:rotate-12" />
-            <motion.div
-              initial={{ opacity: 0 }}
-              animate={{ opacity: [0, 1, 0] }}
-              transition={{ duration: 1.5, repeat: Infinity, repeatDelay: 2 }}
-              className="absolute -top-1 -right-1"
-            >
-              <Sparkle className="h-2 w-2 sm:h-3 sm:w-3 text-theme-teal" strokeWidth={1} />
-            </motion.div>
-            <motion.div
-              initial={{ opacity: 0 }}
-              animate={{ opacity: [0, 0.7, 0] }}
-              transition={{ duration: 2, repeat: Infinity, repeatDelay: 3, delay: 1 }}
-              className="absolute -bottom-1 -left-2"
-            >
-              <Star className="h-1.5 w-1.5 sm:h-2 sm:w-2 text-theme-teal" strokeWidth={1} />
-            </motion.div>
-          </div>
-        )}
+        <div className="absolute inset-0 bg-circuit-pattern opacity-30"></div>
+        <div className="relative transform-gpu transition-all hover:scale-110">
+          <CircuitBoard className="h-5 w-5 sm:h-6 sm:w-6 text-theme-yellow transform-gpu transition-transform hover:rotate-12" />
+          
+          <motion.div
+            initial={{ scale: 0, opacity: 0 }}
+            animate={{ scale: [0, 1.2, 1], opacity: [0, 1, 0] }}
+            transition={{ 
+              duration: 2,
+              repeat: Infinity,
+              repeatDelay: 3
+            }}
+            className="absolute -inset-3 rounded-full border border-theme-yellow/30"
+          />
+          
+          <motion.div
+            initial={{ opacity: 0, x: -15, y: -15 }}
+            animate={{ opacity: [0, 1, 0], x: [-15, -5, 5], y: [-15, -10, -20] }}
+            transition={{ duration: 3, repeat: Infinity, repeatDelay: 2 }}
+            className="absolute -top-1 -right-3"
+          >
+            <Star className="h-2 w-2 sm:h-3 sm:w-3 text-theme-yellow" strokeWidth={1} />
+          </motion.div>
+          
+          <motion.div
+            initial={{ opacity: 0 }}
+            animate={{ opacity: [0, 1, 0] }}
+            transition={{ duration: 1.5, repeat: Infinity, repeatDelay: 2 }}
+            className="absolute -top-1 -left-1"
+          >
+            <Sparkles className="h-2 w-2 sm:h-3 sm:w-3 text-theme-yellow" strokeWidth={1} />
+          </motion.div>
+        </div>
       </motion.div>
-      <span className="sr-only">Toggle theme</span>
+      <span className="sr-only">Theme button</span>
     </Button>
   );
 };

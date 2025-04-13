@@ -1,35 +1,45 @@
-import { Heart, Github, Linkedin, Twitter, Mail } from 'lucide-react';
+
+import { Heart, Github, Linkedin, Twitter, Mail, Cpu, Zap, Circuit, CircuitBoard } from 'lucide-react';
 import { motion } from 'framer-motion';
 
 const Footer = () => {
   const currentYear = new Date().getFullYear();
 
   return (
-    <footer className="py-16 px-6 md:px-10 relative overflow-hidden bg-[#2c3e50]">
+    <footer className="py-16 px-6 md:px-10 relative overflow-hidden bg-black">
       {/* Background elements */}
-      <div className="absolute inset-0 bg-gradient-to-t from-[#34495e] to-transparent opacity-40 pointer-events-none"></div>
-      <div className="absolute top-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-[#3498db]/20 to-transparent"></div>
+      <div className="absolute inset-0 tech-pattern opacity-20 pointer-events-none"></div>
+      <div className="absolute inset-0 circuit-overlay opacity-30 pointer-events-none"></div>
       
-      {/* Geometric shapes */}
-      <div className="absolute bottom-0 right-0 opacity-10 pointer-events-none">
-        <svg width="350" height="350" viewBox="0 0 350 350" fill="none" xmlns="http://www.w3.org/2000/svg">
-          <circle cx="175" cy="175" r="175" fill="url(#paint0_linear)"/>
-          <defs>
-            <linearGradient id="paint0_linear" x1="0" y1="0" x2="350" y2="350" gradientUnits="userSpaceOnUse">
-              <stop stopColor="currentColor" className="text-primary"/>
-              <stop offset="1" stopColor="currentColor" className="text-primary" stopOpacity="0"/>
-            </linearGradient>
-          </defs>
-        </svg>
-      </div>
+      {/* Animated top border */}
+      <div className="absolute top-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-theme-yellow/50 to-transparent"></div>
       
-      <div className="max-w-7xl mx-auto relative">
+      {/* Animated elements */}
+      <motion.div
+        className="absolute bottom-10 right-10 w-40 h-40 rounded-full bg-theme-yellow/5 blur-3xl"
+        animate={{
+          opacity: [0.3, 0.6, 0.3],
+          scale: [0.8, 1.2, 0.8],
+        }}
+        transition={{
+          duration: 8,
+          repeat: Infinity,
+          ease: "easeInOut",
+        }}
+      />
+      
+      {/* Circuit elements */}
+      <div className="absolute top-10 left-10 border border-theme-yellow/20 w-16 h-16 rounded-md"></div>
+      <div className="absolute bottom-20 right-20 border border-theme-yellow/20 w-24 h-8"></div>
+      
+      <div className="max-w-7xl mx-auto relative z-10">
         <div className="grid grid-cols-1 md:grid-cols-4 gap-10">
           <div className="col-span-2">
-            <a href="#home" className="inline-block mb-4">
-              <h2 className="text-2xl font-bold bg-gradient-to-r from-[#3498db] to-[#2980b9] bg-clip-text text-transparent">Ahmed</h2>
+            <a href="#home" className="inline-block mb-4 group relative">
+              <h2 className="text-2xl font-bold gradient-text-yellow neon-glow">Ahmed</h2>
+              <CircuitBoard className="absolute -right-6 -bottom-2 h-4 w-4 text-theme-yellow/40" />
             </a>
-            <p className="text-white/80 max-w-md mb-6">
+            <p className="text-theme-white/70 max-w-md mb-6">
               A passionate full-stack developer focused on building beautiful interfaces & experiences. Always eager to learn and collaborate on interesting projects.
             </p>
             <div className="flex space-x-4">
@@ -37,9 +47,9 @@ const Footer = () => {
                 href="https://github.com/ahmed2231web" 
                 target="_blank" 
                 rel="noopener noreferrer"
-                className="p-2 rounded-full bg-secondary hover:bg-primary/10 hover:text-primary transition-colors"
+                className="p-2 rounded-full bg-theme-yellow/10 border border-theme-yellow/30 hover:bg-theme-yellow/20 hover:text-theme-yellow text-theme-white transition-colors"
                 aria-label="GitHub"
-                whileHover={{ y: -3, transition: { duration: 0.2 } }}
+                whileHover={{ y: -3, transition: { duration: 0.2 }, boxShadow: "0 0 8px rgba(253, 238, 48, 0.5)" }}
               >
                 <Github size={18} />
               </motion.a>
@@ -47,9 +57,9 @@ const Footer = () => {
                 href="https://linkedin.com/" 
                 target="_blank" 
                 rel="noopener noreferrer"
-                className="p-2 rounded-full bg-secondary hover:bg-primary/10 hover:text-primary transition-colors"
+                className="p-2 rounded-full bg-theme-yellow/10 border border-theme-yellow/30 hover:bg-theme-yellow/20 hover:text-theme-yellow text-theme-white transition-colors"
                 aria-label="LinkedIn"
-                whileHover={{ y: -3, transition: { duration: 0.2 } }}
+                whileHover={{ y: -3, transition: { duration: 0.2 }, boxShadow: "0 0 8px rgba(253, 238, 48, 0.5)" }}
               >
                 <Linkedin size={18} />
               </motion.a>
@@ -57,69 +67,99 @@ const Footer = () => {
                 href="https://twitter.com/" 
                 target="_blank" 
                 rel="noopener noreferrer"
-                className="p-2 rounded-full bg-secondary hover:bg-primary/10 hover:text-primary transition-colors"
+                className="p-2 rounded-full bg-theme-yellow/10 border border-theme-yellow/30 hover:bg-theme-yellow/20 hover:text-theme-yellow text-theme-white transition-colors"
                 aria-label="Twitter"
-                whileHover={{ y: -3, transition: { duration: 0.2 } }}
+                whileHover={{ y: -3, transition: { duration: 0.2 }, boxShadow: "0 0 8px rgba(253, 238, 48, 0.5)" }}
               >
                 <Twitter size={18} />
               </motion.a>
               <motion.a 
                 href="mailto:ahmed@example.com" 
-                className="p-2 rounded-full bg-secondary hover:bg-primary/10 hover:text-primary transition-colors"
+                className="p-2 rounded-full bg-theme-yellow/10 border border-theme-yellow/30 hover:bg-theme-yellow/20 hover:text-theme-yellow text-theme-white transition-colors"
                 aria-label="Email"
-                whileHover={{ y: -3, transition: { duration: 0.2 } }}
+                whileHover={{ y: -3, transition: { duration: 0.2 }, boxShadow: "0 0 8px rgba(253, 238, 48, 0.5)" }}
               >
                 <Mail size={18} />
               </motion.a>
             </div>
           </div>
           
-          <div>
-            <h3 className="text-lg font-semibold mb-4">Quick Links</h3>
+          <div className="backdrop-blur-sm p-4 rounded-md bg-white/5 border border-theme-yellow/20">
+            <h3 className="text-lg font-semibold mb-4 text-theme-yellow">Quick Links</h3>
             <ul className="space-y-2">
               <li>
-                <a href="#home" className="text-muted-foreground hover:text-primary transition-colors">Home</a>
+                <a href="#home" className="text-theme-white/70 hover:text-theme-yellow transition-colors flex items-center gap-2">
+                  <span className="w-1 h-1 bg-theme-yellow rounded-full"></span>
+                  Home
+                </a>
               </li>
               <li>
-                <a href="#about" className="text-muted-foreground hover:text-primary transition-colors">About</a>
+                <a href="#about" className="text-theme-white/70 hover:text-theme-yellow transition-colors flex items-center gap-2">
+                  <span className="w-1 h-1 bg-theme-yellow rounded-full"></span>
+                  About
+                </a>
               </li>
               <li>
-                <a href="#projects" className="text-muted-foreground hover:text-primary transition-colors">Projects</a>
+                <a href="#projects" className="text-theme-white/70 hover:text-theme-yellow transition-colors flex items-center gap-2">
+                  <span className="w-1 h-1 bg-theme-yellow rounded-full"></span>
+                  Projects
+                </a>
               </li>
               <li>
-                <a href="#skills" className="text-muted-foreground hover:text-primary transition-colors">Skills</a>
+                <a href="#skills" className="text-theme-white/70 hover:text-theme-yellow transition-colors flex items-center gap-2">
+                  <span className="w-1 h-1 bg-theme-yellow rounded-full"></span>
+                  Skills
+                </a>
               </li>
               <li>
-                <a href="#contact" className="text-muted-foreground hover:text-primary transition-colors">Contact</a>
+                <a href="#contact" className="text-theme-white/70 hover:text-theme-yellow transition-colors flex items-center gap-2">
+                  <span className="w-1 h-1 bg-theme-yellow rounded-full"></span>
+                  Contact
+                </a>
               </li>
             </ul>
           </div>
           
-          <div>
-            <h3 className="text-lg font-semibold mb-4">Contact</h3>
-            <ul className="space-y-2 text-muted-foreground">
-              <li>New York, USA</li>
-              <li>
-                <a href="mailto:ahmed@example.com" className="hover:text-primary transition-colors">ahmed@example.com</a>
+          <div className="backdrop-blur-sm p-4 rounded-md bg-white/5 border border-theme-yellow/20">
+            <h3 className="text-lg font-semibold mb-4 text-theme-yellow">Contact</h3>
+            <ul className="space-y-2 text-theme-white/70">
+              <li className="flex items-center gap-2">
+                <span className="w-1 h-1 bg-theme-yellow rounded-full"></span>
+                New York, USA
               </li>
               <li>
-                <a href="tel:+1234567890" className="hover:text-primary transition-colors">+1 (234) 567-890</a>
+                <a href="mailto:ahmed@example.com" className="hover:text-theme-yellow transition-colors flex items-center gap-2">
+                  <span className="w-1 h-1 bg-theme-yellow rounded-full"></span>
+                  ahmed@example.com
+                </a>
+              </li>
+              <li>
+                <a href="tel:+1234567890" className="hover:text-theme-yellow transition-colors flex items-center gap-2">
+                  <span className="w-1 h-1 bg-theme-yellow rounded-full"></span>
+                  +1 (234) 567-890
+                </a>
               </li>
             </ul>
           </div>
         </div>
         
-        <div className="mt-12 pt-6 border-t border-white/10 flex flex-col md:flex-row justify-between items-center">
-          <p className="text-sm text-white/70 mb-4 md:mb-0">
+        <div className="mt-12 pt-6 border-t border-theme-yellow/20 flex flex-col md:flex-row justify-between items-center">
+          <p className="text-sm text-theme-white/60 mb-4 md:mb-0">
             © {currentYear} Ahmed. All rights reserved.
           </p>
           
           <div className="flex items-center">
-            <p className="text-sm text-white/70 flex items-center">
-              Built with <Heart className="w-4 h-4 mx-1 text-red-500 animate-pulse" /> using React & Tailwind CSS
+            <p className="text-sm text-theme-white/60 flex items-center">
+              Built with <Heart className="w-4 h-4 mx-1 text-theme-yellow animate-pulse" /> using React & Tailwind CSS
             </p>
           </div>
         </div>
+        
+        {/* Decorative circuit lines */}
+        <div className="absolute bottom-0 left-10 w-20 h-[1px] bg-theme-yellow/30"></div>
+        <div className="absolute bottom-0 left-10 w-[1px] h-10 bg-theme-yellow/30"></div>
+        <div className="absolute bottom-0 right-10 w-20 h-[1px] bg-theme-yellow/30"></div>
+        <div className="absolute bottom-0 right-10 w-[1px] h-10 bg-theme-yellow/30"></div>
       </div>
     </footer>
   );

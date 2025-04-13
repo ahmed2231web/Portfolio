@@ -4,84 +4,48 @@
 
 @layer base {
   :root {
-    --background: 49 100% 98%;
-    --foreground: 258 20% 38%;
+    /* We're keeping only dark mode values since we're removing light mode */
+    --background: 0 0% 0%;  /* #000000 - Pure black */
+    --foreground: 60 100% 99.6%;  /* #fefefe - Off-white */
 
-    --card: 0 0% 100%;
-    --card-foreground: 258 20% 38%;
+    --card: 0 0% 7%;
+    --card-foreground: 60 100% 99.6%;
 
-    --popover: 0 0% 100%;
-    --popover-foreground: 258 20% 38%;
+    --popover: 0 0% 5%;
+    --popover-foreground: 60 100% 99.6%;
 
-    --primary: 199 90% 55%;
-    --primary-foreground: 0 0% 100%;
+    --primary: 56 98% 59%;  /* #fdee30 - Yellow */
+    --primary-foreground: 0 0% 0%;
 
-    --secondary: 173 70% 70%;
-    --secondary-foreground: 258 20% 38%;
+    --secondary: 0 0% 15%;
+    --secondary-foreground: 60 100% 99.6%;
 
-    --muted: 258 20% 38%;
-    --muted-foreground: 258 20% 65%;
+    --muted: 0 0% 15%;
+    --muted-foreground: 0 0% 70%;
 
-    --accent: 173 70% 70%;
-    --accent-foreground: 258 20% 38%;
+    --accent: 56 98% 59%;
+    --accent-foreground: 0 0% 0%;
 
-    --destructive: 0 90% 65%;
-    --destructive-foreground: 0 0% 100%;
+    --destructive: 0 80% 60%;
+    --destructive-foreground: 60 100% 99.6%;
 
-    --border: 173 70% 84%;
-    --input: 173 70% 84%;
-    --ring: 199 90% 55%;
+    --border: 0 0% 20%;
+    --input: 0 0% 20%;
+    --ring: 56 98% 59%;
 
     --radius: 0.7rem;
     
-    --sidebar-background: 0 0% 100%;
-    --sidebar-foreground: 258 20% 38%;
-    --sidebar-primary: 199 90% 55%;
-    --sidebar-primary-foreground: 0 0% 100%;
-    --sidebar-accent: 173 70% 70%;
-    --sidebar-accent-foreground: 258 20% 38%;
-    --sidebar-border: 173 70% 84%;
-    --sidebar-ring: 199 90% 55%;
+    --sidebar-background: 0 0% 5%;
+    --sidebar-foreground: 60 100% 99.6%;
+    --sidebar-primary: 56 98% 59%;
+    --sidebar-primary-foreground: 0 0% 0%;
+    --sidebar-accent: 56 98% 59%;
+    --sidebar-accent-foreground: 0 0% 0%;
+    --sidebar-border: 0 0% 20%;
+    --sidebar-ring: 56 98% 59%;
   }
 
-  .dark {
-    --background: 258 20% 25%;
-    --foreground: 49 100% 98%;
-
-    --card: 258 20% 25%;
-    --card-foreground: 49 100% 98%;
-
-    --popover: 258 20% 25%;
-    --popover-foreground: 49 100% 98%;
-
-    --primary: 199 90% 60%;
-    --primary-foreground: 0 0% 100%;
-
-    --secondary: 173 70% 74%;
-    --secondary-foreground: 49 100% 98%;
-
-    --muted: 173 40% 25%;
-    --muted-foreground: 173 30% 85%;
-
-    --accent: 173 70% 74%;
-    --accent-foreground: 49 100% 98%;
-
-    --destructive: 0 80% 70%;
-    --destructive-foreground: 49 100% 98%;
-
-    --border: 258 25% 35%;
-    --input: 258 25% 35%;
-    --ring: 199 90% 60%;
-    
-    --sidebar-background: 258 20% 20%;
-    --sidebar-foreground: 49 100% 98%;
-    --sidebar-primary: 199 90% 60%;
-    --sidebar-primary-foreground: 0 0% 100%;
-    --sidebar-accent: 173 70% 74%;
-    --sidebar-accent-foreground: 258 20% 20%;
-    --sidebar-border: 258 25% 35%;
-    --sidebar-ring: 199 90% 60%;
-  }
+  /* No light/dark alternation as we're using dark mode only */
 }
 
 @layer base {
@@ -282,7 +246,73 @@
   .flicker-animation {
     animation: flicker 5s infinite alternate;
   }
+
+  /* Futuristic UI utilities */
+  .neon-glow {
+    text-shadow: 0 0 5px rgba(253, 238, 48, 0.5), 
+                 0 0 10px rgba(253, 238, 48, 0.3), 
+                 0 0 15px rgba(253, 238, 48, 0.2);
+  }
+  
+  .neon-box {
+    box-shadow: 0 0 5px rgba(253, 238, 48, 0.5), 
+                0 0 10px rgba(253, 238, 48, 0.3), 
+                0 0 15px rgba(253, 238, 48, 0.2);
+  }
+  
+  .futuristic-border {
+    position: relative;
+  }
+  
+  .futuristic-border::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    border-radius: inherit;
+    padding: 1px;
+    background: linear-gradient(to right, hsl(var(--primary)), transparent 80%);
+    -webkit-mask: 
+      linear-gradient(#fff 0 0) content-box, 
+      linear-gradient(#fff 0 0);
+    -webkit-mask-composite: xor;
+    mask-composite: exclude;
+    pointer-events: none;
+  }
+  
+  .glass-dark {
+    @apply backdrop-blur-xl bg-black/30 border border-white/10 shadow-lg;
+  }
+  
+  .tech-pattern {
+    background-image: 
+      linear-gradient(to right, rgba(253, 238, 48, 0.05) 1px, transparent 1px),
+      linear-gradient(to bottom, rgba(253, 238, 48, 0.05) 1px, transparent 1px);
+    background-size: 20px 20px;
+  }
+  
+  .circuit-overlay {
+    position: relative;
+  }
+  
+  .circuit-overlay::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-image: url("data:image/svg+xml,%3Csvg width='100' height='100' viewBox='0 0 100 100' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M20 10 H80 V20 H70 V30 H30 V20 H20 V10 Z M80 70 V80 H20 V70 H30 V60 H70 V70 H80 Z' fill='none' stroke='rgba(253, 238, 48, 0.1)' stroke-width='1'/%3E%3C/svg%3E");
+    opacity: 0.3;
+    pointer-events: none;
+    z-index: 1;
+  }
+  
+  .gradient-text-yellow {
+    @apply bg-gradient-to-r from-[#fdee30] via-[#fff8a0] to-[#fdee30] bg-clip-text text-transparent;
+  }
 }
+
+/* Keep existing keyframes and animations */
 
 @keyframes typing {
   0% { width: 0 }
@@ -312,4 +342,55 @@
 
 .animate-float {
   animation: float 3s ease-in-out infinite;
+}
+
+@keyframes pulse-yellow {
+  0%, 100% { 
+    box-shadow: 0 0 5px rgba(253, 238, 48, 0.7),
+                0 0 10px rgba(253, 238, 48, 0.5),
+                0 0 15px rgba(253, 238, 48, 0.3);
+  }
+  50% { 
+    box-shadow: 0 0 10px rgba(253, 238, 48, 0.9),
+                0 0 20px rgba(253, 238, 48, 0.7),
+                0 0 30px rgba(253, 238, 48, 0.5);
+  }
+}
+
+.animate-pulse-yellow {
+  animation: pulse-yellow 2s infinite;
+}
+
+@keyframes float-y {
+  0% { transform: translateY(0); }
+  50% { transform: translateY(-10px); }
+  100% { transform: translateY(0); }
+}
+
+.animate-float-y {
+  animation: float-y 4s ease-in-out infinite;
+}
+
+@keyframes scanline {
+  0% {
+    transform: translateY(-100%);
+  }
+  100% {
+    transform: translateY(100%);
+  }
+}
+
+.animate-scanline {
+  position: relative;
+  overflow: hidden;
+}
+
+.animate-scanline::after {
+  content: '';
+  position: absolute;
+  width: 100%;
+  height: 4px;
+  background: linear-gradient(90deg, transparent, rgba(253, 238, 48, 0.5), transparent);
+  animation: scanline 3s linear infinite;
+  z-index: 1;
 }
