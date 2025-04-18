@@ -1,4 +1,3 @@
-
 import { Heart, Github, Linkedin, Twitter, Mail, Cpu, Zap, CircuitBoard } from 'lucide-react';
 import { motion } from 'framer-motion';
 
@@ -40,7 +39,7 @@ const Footer = () => {
               <CircuitBoard className="absolute -right-6 -bottom-2 h-4 w-4 text-theme-yellow/40" />
             </a>
             <p className="text-theme-white/70 max-w-md mb-6">
-              A passionate full-stack developer focused on building beautiful interfaces & experiences. Always eager to learn and collaborate on interesting projects.
+              Building intelligent solutions with Python, AI/ML, and innovative technologies. Let's create something amazing together! 🚀
             </p>
             <div className="flex space-x-4">
               <motion.a 
@@ -48,38 +47,18 @@ const Footer = () => {
                 target="_blank" 
                 rel="noopener noreferrer"
                 className="p-2 rounded-full bg-theme-yellow/10 border border-theme-yellow/30 hover:bg-theme-yellow/20 hover:text-theme-yellow text-theme-white transition-colors"
-                aria-label="GitHub"
                 whileHover={{ y: -3, transition: { duration: 0.2 }, boxShadow: "0 0 8px rgba(253, 238, 48, 0.5)" }}
               >
                 <Github size={18} />
               </motion.a>
               <motion.a 
-                href="https://linkedin.com/" 
+                href="https://linkedin.com/in/ahmed-kayani-10ba94224" 
                 target="_blank" 
                 rel="noopener noreferrer"
                 className="p-2 rounded-full bg-theme-yellow/10 border border-theme-yellow/30 hover:bg-theme-yellow/20 hover:text-theme-yellow text-theme-white transition-colors"
-                aria-label="LinkedIn"
                 whileHover={{ y: -3, transition: { duration: 0.2 }, boxShadow: "0 0 8px rgba(253, 238, 48, 0.5)" }}
               >
                 <Linkedin size={18} />
-              </motion.a>
-              <motion.a 
-                href="https://twitter.com/" 
-                target="_blank" 
-                rel="noopener noreferrer"
-                className="p-2 rounded-full bg-theme-yellow/10 border border-theme-yellow/30 hover:bg-theme-yellow/20 hover:text-theme-yellow text-theme-white transition-colors"
-                aria-label="Twitter"
-                whileHover={{ y: -3, transition: { duration: 0.2 }, boxShadow: "0 0 8px rgba(253, 238, 48, 0.5)" }}
-              >
-                <Twitter size={18} />
-              </motion.a>
-              <motion.a 
-                href="mailto:ahmed@example.com" 
-                className="p-2 rounded-full bg-theme-yellow/10 border border-theme-yellow/30 hover:bg-theme-yellow/20 hover:text-theme-yellow text-theme-white transition-colors"
-                aria-label="Email"
-                whileHover={{ y: -3, transition: { duration: 0.2 }, boxShadow: "0 0 8px rgba(253, 238, 48, 0.5)" }}
-              >
-                <Mail size={18} />
               </motion.a>
             </div>
           </div>
@@ -125,18 +104,18 @@ const Footer = () => {
             <ul className="space-y-2 text-theme-white/70">
               <li className="flex items-center gap-2">
                 <span className="w-1 h-1 bg-theme-yellow rounded-full"></span>
-                New York, USA
+                Pakistan
               </li>
               <li>
-                <a href="mailto:ahmed@example.com" className="hover:text-theme-yellow transition-colors flex items-center gap-2">
+                <a href="mailto:ahmedkayani2230@gmail.com" className="hover:text-theme-yellow transition-colors flex items-center gap-2">
                   <span className="w-1 h-1 bg-theme-yellow rounded-full"></span>
-                  ahmed@example.com
+                  ahmedkayani2230@gmail.com
                 </a>
               </li>
               <li>
-                <a href="tel:+1234567890" className="hover:text-theme-yellow transition-colors flex items-center gap-2">
+                <a href="tel:+923114816990" className="hover:text-theme-yellow transition-colors flex items-center gap-2">
                   <span className="w-1 h-1 bg-theme-yellow rounded-full"></span>
-                  +1 (234) 567-890
+                  +92 311 4816990
                 </a>
               </li>
             </ul>

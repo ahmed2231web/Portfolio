@@ -1,7 +1,8 @@
+
 import { Card } from '@/components/ui/card';
 import useScrollAnimation from '@/hooks/useScrollAnimation';
 import { motion } from 'framer-motion';
-import { GraduationCap, Briefcase, Heart, Link as LinkIcon, Github } from 'lucide-react';
+import { GraduationCap, Briefcase, Heart, Link as LinkIcon, Github, Cpu, Code, Brain, LineChart, Sparkles } from 'lucide-react';
 
 const About = () => {
   const { ref: bioRef, isVisible: isBioVisible } = useScrollAnimation();
@@ -11,7 +12,7 @@ const About = () => {
 
   return (
     <section id="about" className="section-padding px-6 md:px-10 relative overflow-hidden">
-      {/* Background elements */}
+      {/* Enhanced background elements */}
       <div className="absolute inset-0 bg-gradient-to-br from-background via-primary/5 to-background z-0"></div>
       <div className="absolute top-20 left-10 w-64 h-64 bg-blue-500/10 rounded-full blur-3xl animate-pulse"></div>
       <div className="absolute bottom-20 right-10 w-72 h-72 bg-purple-500/10 rounded-full blur-3xl animate-pulse" style={{animationDelay: '1.5s'}}></div>
@@ -24,40 +25,52 @@ const About = () => {
           transition={{ duration: 0.6 }}
         >
           <h2 className="text-3xl md:text-5xl font-bold mb-6 md:mb-10 pb-2 border-b-2 border-primary inline-block gradient-text">
-            About Me
+            About Me <span className="text-theme-yellow">✨</span>
           </h2>
         </motion.div>
         
         <div className="grid grid-cols-1 lg:grid-cols-3 gap-10 mt-10">
           <motion.div 
             ref={bioRef} 
-            className="lg:col-span-2 space-y-6 glass-effect p-6 rounded-xl"
+            className="lg:col-span-2 space-y-6 glass-effect p-8 rounded-xl shadow-neon-sm hover:shadow-neon-md transition-all duration-300"
             initial={{ opacity: 0, x: -50 }}
             whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.5 }}
           >
-            <div className="flex items-center gap-3 mb-4">
-              <div className="bg-primary/10 p-2 rounded-full">
+            <div className="flex items-center gap-3 mb-6">
+              <div className="bg-primary/10 p-3 rounded-full">
                 <motion.div
                   animate={{ rotate: [0, 10, 0] }}
                   transition={{ duration: 2, repeat: Infinity }}
                 >
-                  <LinkIcon className="h-6 w-6 text-primary" />
+                  <Cpu className="h-6 w-6 text-theme-yellow" />
                 </motion.div>
               </div>
-              <h3 className="text-2xl font-bold">Ahmed Kayani</h3>
+              <h3 className="text-2xl font-bold text-theme-yellow">Ahmed Kayani</h3>
             </div>
             
-            <p className="text-lg leading-relaxed">
-              A passionate Software Developer with a Bachelor's in Software Engineering from the University of Gujrat,
-              skilled in Python backend development, AI/ML solutions, and creating intelligent AI agents. Currently
-              specialized in building impactful projects like AgroConnect and AI-powered app review analysis, with
-              a strong understanding of Large Language Models (LLMs) and their applications in natural language
-              processing and automation.
-            </p>
+            <div className="space-y-4 text-lg leading-relaxed">
+              <p className="flex items-start gap-2">
+                <Code className="h-5 w-5 mt-1 text-theme-yellow" />
+                A passionate Software Developer with a deep love for building intelligent solutions 🚀
+              </p>
+              
+              <p className="flex items-start gap-2">
+                <Brain className="h-5 w-5 mt-1 text-theme-yellow" />
+                Specialized in Python backend development, AI/ML solutions, and creating intelligent AI agents 🤖
+              </p>
+              
+              <p className="flex items-start gap-2">
+                <LineChart className="h-5 w-5 mt-1 text-theme-yellow" />
+                Strong focus on building scalable applications and implementing cutting-edge AI technologies 📈
+              </p>
 
-            
+              <p className="flex items-start gap-2">
+                <Sparkles className="h-5 w-5 mt-1 text-theme-yellow" />
+                Currently working on innovative projects like AgroConnect and AI-powered review analysis systems ✨
+              </p>
+            </div>
           </motion.div>
           
           <div className="lg:col-span-1 space-y-6">

@@ -1,4 +1,3 @@
-
 import { useState, useEffect } from 'react';
 import { Menu, X, Zap, CircuitBoard } from 'lucide-react';
 import { Button } from "@/components/ui/button";
@@ -166,7 +165,15 @@ const Header = () => {
           animate={mobileMenuOpen ? { opacity: 1 } : { opacity: 0 }}
           transition={{ duration: 0.2 }}
         >
-          {/* Tech grid overlay */}
+          {/* Add close button */}
+          <button
+            onClick={closeMobileMenu}
+            className="absolute top-6 right-6 p-2 text-theme-yellow hover:bg-theme-yellow/10 rounded-full transition-colors"
+            aria-label="Close menu"
+          >
+            <X className="h-6 w-6" />
+          </button>
+          
           <div className="absolute inset-0 circuit-overlay opacity-20"></div>
           
           <nav className="flex flex-col h-full relative z-10">
