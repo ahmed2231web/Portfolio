@@ -1,8 +1,15 @@
-
 import { Card } from '@/components/ui/card';
 import useScrollAnimation from '@/hooks/useScrollAnimation';
 import { motion } from 'framer-motion';
-import { Sparkles, GraduationCap, Briefcase, Heart } from 'lucide-react';
+import { Sparkles, GraduationCap, Briefcase, Heart, Code, Server, GitBranch, PenTool } from 'lucide-react';
+
+interface SkillCategory {
+  title: string;
+  icon: React.ReactNode;
+  skills: string[];
+  gradient: string;
+  iconBg: string;
+}
 
 const About = () => {
   const { ref: bioRef, isVisible: isBioVisible } = useScrollAnimation();
@@ -42,25 +49,32 @@ const About = () => {
               <div className="bg-primary/10 p-2 rounded-full">
                 <Sparkles className="h-6 w-6 text-primary" />
               </div>
-              <h3 className="text-2xl font-bold">Ahmed</h3>
+              <h3 className="text-2xl font-bold">Ahmed Kayani</h3>
             </div>
             
             <p className="text-lg leading-relaxed">
-              Hello! I'm Ahmed, a passionate web developer creating responsive and user-friendly applications 
-              with clean, maintainable code. I focus on delivering exceptional digital experiences that 
-              combine beautiful design with optimal performance.
+              A passionate Software Developer with a Bachelor's in Software Engineering from the University of Gujrat,
+              skilled in Python backend development, system solutions, and creating intelligent AI agents. 
+              Currently specialized in building impactful projects like AgroConnect and AI-powered app review analysis. 
+              I excel at implementing ideas into scalable, innovation-driven solutions.
             </p>
-            
+
             <div className="pt-4">
               <h3 className="text-xl font-semibold mb-4 flex items-center">
                 <span className="bg-primary/10 p-1 rounded-full mr-2">
                   <span className="block h-2 w-2 rounded-full bg-primary"></span>
                 </span>
-                My development philosophy:
+                Areas of Interest
               </h3>
               <ul className="grid grid-cols-1 md:grid-cols-2 gap-3">
-                {["Write clean, maintainable code", "Create intuitive user experiences", 
-                  "Build with performance in mind", "Focus on accessibility & inclusion"].map((item, i) => (
+                {[
+                  "Python Development & Backend Architecture",
+                  "ML & AI Agent Development",
+                  "Open Source Contributions",
+                  "Natural Language Processing",
+                  "System Design & Architecture",
+                  "AI Research & Implementation"
+                ].map((item, i) => (
                   <motion.li 
                     key={i}
                     className="flex items-center bg-secondary/50 rounded-lg p-3 shadow-sm"
@@ -94,8 +108,8 @@ const About = () => {
                   </div>
                   <h3 className="text-xl font-semibold text-primary group-hover:translate-x-1 transition-transform">Education</h3>
                 </div>
-                <p className="font-medium mt-2">Computer Science</p>
-                <p className="text-muted-foreground">University Name, 2018-2022</p>
+                <p className="font-medium mt-2">Software Engineering</p>
+                <p className="text-muted-foreground">University of Gujrat, 2019-2023</p>
               </Card>
             </motion.div>
             
@@ -116,8 +130,8 @@ const About = () => {
                   </div>
                   <h3 className="text-xl font-semibold text-primary group-hover:translate-x-1 transition-transform">Experience</h3>
                 </div>
-                <p className="font-medium mt-2">Web Developer</p>
-                <p className="text-muted-foreground">Company Name, 2022-Present</p>
+                <p className="font-medium mt-2">Software Developer</p>
+                <p className="text-muted-foreground">Self-Employed, 2023-Present</p>
               </Card>
             </motion.div>
             
