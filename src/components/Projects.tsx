@@ -13,65 +13,46 @@ import {
   Code 
 } from 'lucide-react';
 
-// Updated project data without liveUrl
 const projectsData: ProjectProps[] = [
   {
     id: '1',
-    title: 'E-commerce Platform',
-    description: 'A full-featured e-commerce platform with product listings, cart functionality, and secure checkout.',
-    image: 'https://images.unsplash.com/photo-1563013544-824ae1b704d3?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80',
-    tags: ['React', 'Node.js', 'MongoDB', 'Stripe'],
-    githubUrl: 'https://github.com/ahmed2231web/project1',
-    categories: ['Web Development', 'Full Stack'],
+    title: 'AgroConnect',
+    description: 'An advanced e-commerce platform for agriculture with features like farmer-buyer connections and crop AI recommendations.',
+    image: 'https://images.unsplash.com/photo-1495107334309-fcf20504a5ab?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80',
+    tags: ['Python', 'Django', 'React', 'AI/ML'],
+    githubUrl: 'https://github.com/ahmed2231web/Final-Year-Project',
+    categories: ['Full Stack', 'AI/ML'],
   },
   {
     id: '2',
-    title: 'Portfolio Website',
-    description: 'A responsive portfolio website showcasing projects and skills with smooth animations.',
-    image: 'https://images.unsplash.com/photo-1517694712202-14dd9538aa97?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80',
-    tags: ['React', 'Tailwind CSS', 'Framer Motion'],
-    githubUrl: 'https://github.com/ahmed2231web/project2',
-    categories: ['Web Development', 'UI/UX'],
+    title: 'AI Agent for App Review Analysis',
+    description: 'AI system analyzing app reviews with specialized agents for insights, helping developers understand user feedback better.',
+    image: 'https://images.unsplash.com/photo-1551288049-bebda4e38f71?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80',
+    tags: ['Python', 'NLP', 'Machine Learning'],
+    githubUrl: 'https://github.com/ahmed2231web/AI-Agent-for-App-Review-Analysis',
+    categories: ['AI/ML', 'Backend'],
   },
   {
     id: '3',
-    title: 'Task Management App',
-    description: 'A task management application with drag-and-drop functionality, priority levels, and due dates.',
-    image: 'https://images.unsplash.com/photo-1540350394557-8d14678e7f91?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80',
-    tags: ['React', 'Redux', 'Firebase'],
-    githubUrl: 'https://github.com/ahmed2231web/project3',
-    categories: ['Web Development', 'Frontend'],
+    title: 'Ollama RAG',
+    description: 'Retrieval Augmented Generation system for document Q&A using Ollama, enabling intelligent document analysis.',
+    image: 'https://images.unsplash.com/photo-1518770660439-4636190af475?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80',
+    tags: ['Python', 'LLMs', 'RAG'],
+    githubUrl: 'https://github.com/ahmed2231web/Ollama_RAG',
+    categories: ['AI/ML', 'Backend'],
   },
   {
     id: '4',
-    title: 'Weather Dashboard',
-    description: 'A weather dashboard that displays current and forecasted weather data for multiple locations.',
-    image: 'https://images.unsplash.com/photo-1580193769210-b8d1c049a7d9?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80',
-    tags: ['JavaScript', 'API Integration', 'CSS'],
-    githubUrl: 'https://github.com/ahmed2231web/project4',
-    categories: ['Web Development', 'Frontend'],
-  },
-  {
-    id: '5',
-    title: 'Fitness Tracker',
-    description: 'A fitness tracking application that allows users to set goals, track workouts, and visualize progress.',
-    image: 'https://images.unsplash.com/photo-1517836357463-d25dfeac3438?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80',
-    tags: ['React Native', 'Firebase', 'Charts.js'],
-    githubUrl: 'https://github.com/ahmed2231web/project5',
-    categories: ['Mobile Development', 'UI/UX'],
-  },
-  {
-    id: '6',
-    title: 'Recipe Finder',
-    description: 'A recipe finder application that allows users to search for recipes by ingredients or dietary restrictions.',
-    image: 'https://images.unsplash.com/photo-1466637574441-749b8f19452f?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80',
-    tags: ['HTML', 'CSS', 'JavaScript', 'API Integration'],
-    githubUrl: 'https://github.com/ahmed2231web/project6',
-    categories: ['Web Development', 'Frontend'],
-  },
+    title: 'AI Telegram Bot',
+    description: 'Telegram bot with vision and crypto insights powered by Google Gemini, providing automated analysis and responses.',
+    image: 'https://images.unsplash.com/photo-1611606063065-ee7946f0787a?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80',
+    tags: ['Python', 'Gemini', 'API'],
+    githubUrl: 'https://github.com/ahmed2231web/AI-Telegram-Bot',
+    categories: ['AI/ML', 'Backend'],
+  }
 ];
 
-const categories = ['All', 'Web Development', 'UI/UX', 'Frontend', 'Full Stack', 'Mobile Development'];
+const categories = ['All', 'Web Development', 'UI/UX', 'Frontend', 'Full Stack', 'Mobile Development', 'AI/ML', 'Backend'];
 
 const Projects = () => {
   const [activeCategory, setActiveCategory] = useState('All');
@@ -150,6 +131,8 @@ const getProjectIcon = (category: string) => {
       return <Bookmark className="w-4 h-4 mr-1" />;
     case 'all':
       return <Star className="w-4 h-4 mr-1" />;
+      case 'ai/ml':
+        return <Code className="w-4 h-4 mr-1" />;
     default: 
       return <Code className="w-4 h-4 mr-1" />;
   }

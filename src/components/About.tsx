@@ -1,15 +1,7 @@
 import { Card } from '@/components/ui/card';
 import useScrollAnimation from '@/hooks/useScrollAnimation';
 import { motion } from 'framer-motion';
-import { Sparkles, GraduationCap, Briefcase, Heart, Code, Server, GitBranch, PenTool } from 'lucide-react';
-
-interface SkillCategory {
-  title: string;
-  icon: React.ReactNode;
-  skills: string[];
-  gradient: string;
-  iconBg: string;
-}
+import { GraduationCap, Briefcase, Heart, Link as LinkIcon, Github } from 'lucide-react';
 
 const About = () => {
   const { ref: bioRef, isVisible: isBioVisible } = useScrollAnimation();
@@ -47,7 +39,12 @@ const About = () => {
           >
             <div className="flex items-center gap-3 mb-4">
               <div className="bg-primary/10 p-2 rounded-full">
-                <Sparkles className="h-6 w-6 text-primary" />
+                <motion.div
+                  animate={{ rotate: [0, 10, 0] }}
+                  transition={{ duration: 2, repeat: Infinity }}
+                >
+                  <LinkIcon className="h-6 w-6 text-primary" />
+                </motion.div>
               </div>
               <h3 className="text-2xl font-bold">Ahmed Kayani</h3>
             </div>
@@ -55,38 +52,30 @@ const About = () => {
             <p className="text-lg leading-relaxed">
               A passionate Software Developer with a Bachelor's in Software Engineering from the University of Gujrat,
               skilled in Python backend development, system solutions, and creating intelligent AI agents. 
-              Currently specialized in building impactful projects like AgroConnect and AI-powered app review analysis. 
-              I excel at implementing ideas into scalable, innovation-driven solutions.
+              Currently specialized in building impactful projects like AgroConnect and AI-powered app review analysis,
+              with a strong understanding of Large Language Models (LLMs) and their applications in natural language
+              processing and automation.
             </p>
 
-            <div className="pt-4">
-              <h3 className="text-xl font-semibold mb-4 flex items-center">
-                <span className="bg-primary/10 p-1 rounded-full mr-2">
-                  <span className="block h-2 w-2 rounded-full bg-primary"></span>
-                </span>
-                Areas of Interest
-              </h3>
-              <ul className="grid grid-cols-1 md:grid-cols-2 gap-3">
-                {[
-                  "Python Development & Backend Architecture",
-                  "ML & AI Agent Development",
-                  "Open Source Contributions",
-                  "Natural Language Processing",
-                  "System Design & Architecture",
-                  "AI Research & Implementation"
-                ].map((item, i) => (
-                  <motion.li 
-                    key={i}
-                    className="flex items-center bg-secondary/50 rounded-lg p-3 shadow-sm"
-                    initial={{ opacity: 0, y: 20 }}
-                    whileInView={{ opacity: 1, y: 0 }}
-                    viewport={{ once: true }}
-                    transition={{ duration: 0.3, delay: i * 0.1 }}
-                  >
-                    <span className="text-primary mr-2">•</span> {item}
-                  </motion.li>
-                ))}
-              </ul>
+            <div className="flex flex-wrap gap-4 mt-4">
+              <a 
+                href="https://www.linkedin.com/in/ahmed-kayani-10ba94224"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="flex items-center gap-2 hover:text-primary transition-colors"
+              >
+                <LinkIcon size={20} />
+                <span>LinkedIn</span>
+              </a>
+              <a 
+                href="https://github.com/ahmed2231web"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="flex items-center gap-2 hover:text-primary transition-colors"
+              >
+                <Github size={20} />
+                <span>GitHub</span>
+              </a>
             </div>
           </motion.div>
           
@@ -109,7 +98,7 @@ const About = () => {
                   <h3 className="text-xl font-semibold text-primary group-hover:translate-x-1 transition-transform">Education</h3>
                 </div>
                 <p className="font-medium mt-2">Software Engineering</p>
-                <p className="text-muted-foreground">University of Gujrat, 2019-2023</p>
+                <p className="text-muted-foreground">University of Gujrat, 2021-2025</p>
               </Card>
             </motion.div>
             
@@ -153,7 +142,14 @@ const About = () => {
                   <h3 className="text-xl font-semibold text-primary group-hover:translate-x-1 transition-transform">Interests</h3>
                 </div>
                 <ul className="flex flex-wrap gap-2 mt-3">
-                  {["Web Development", "UI/UX Design", "Open Source", "New Technologies"].map((interest, i) => (
+                  {[
+                    "Python Development",
+                    "AI Agent Development",
+                    "LLMs & NLP",
+                    "Backend Development",
+                    "Open Source",
+                    "System Design"
+                  ].map((interest, i) => (
                     <li 
                       key={i} 
                       className="bg-secondary/80 px-3 py-1.5 rounded-full text-sm font-medium transition-all hover:bg-primary/20 hover:scale-105 hover:shadow-sm cursor-default"
