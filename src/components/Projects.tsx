@@ -21,7 +21,7 @@ const projectsData: ProjectProps[] = [
     image: 'https://images.unsplash.com/photo-1495107334309-fcf20504a5ab?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80',
     tags: ['Python', 'Django', 'React', 'AI/ML'],
     githubUrl: 'https://github.com/ahmed2231web/Final-Year-Project',
-    categories: ['Full Stack', 'AI/ML'],
+    categories: ['Full Stack', 'AI/ML', 'Python'],
   },
   {
     id: '2',
@@ -52,7 +52,7 @@ const projectsData: ProjectProps[] = [
   }
 ];
 
-const categories = ['All', 'Web Development', 'UI/UX', 'Frontend', 'Full Stack', 'Mobile Development', 'AI/ML', 'Backend'];
+const categories = ['All', 'Backend', 'AI/ML', 'Python', 'Full Stack'];
 
 const Projects = () => {
   const [activeCategory, setActiveCategory] = useState('All');

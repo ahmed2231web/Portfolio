@@ -1,4 +1,3 @@
-
 import { ArrowDown, Sparkles, CircuitBoard, Cpu, Zap } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import TypingEffect from './TypingEffect';
@@ -139,7 +138,12 @@ const Hero = () => {
             transition={{ delay: 1.5, duration: 0.8 }}
             className="flex flex-col sm:flex-row gap-4"
           >
-            <a href="#projects" className="w-full sm:w-auto group">
+            <a 
+              href="https://flowcv.com/resume/uscg3n22ccss" 
+              target="_blank" 
+              rel="noopener noreferrer" 
+              className="w-full sm:w-auto group"
+            >
               <Button 
                 size={isMobile ? "default" : "lg"}
                 className="w-full sm:w-auto px-6 sm:px-8 py-6 sm:py-6 bg-theme-yellow text-theme-black hover:bg-theme-yellow/90 transform transition-all duration-300 hover:-translate-y-1 shadow-neon-sm hover:shadow-neon-md group-hover:animate-pulse-yellow font-semibold text-base relative overflow-hidden"
@@ -180,28 +184,26 @@ const Hero = () => {
               }}
               transition={{ duration: 8, repeat: Infinity, ease: "easeInOut" }}
             >
-              <div className="text-theme-yellow/90 font-mono text-sm">
+              <motion.div 
+                className="text-theme-yellow/90 font-mono text-sm"
+              >
                 <div className="flex items-center gap-1 mb-2">
                   <div className="w-3 h-3 rounded-full bg-red-500"></div>
                   <div className="w-3 h-3 rounded-full bg-yellow-500"></div>
                   <div className="w-3 h-3 rounded-full bg-green-500"></div>
                 </div>
-                <motion.div 
-                  initial={{ opacity: 0 }}
-                  animate={{ opacity: 1 }}
-                  transition={{ delay: 1.5, duration: 0.8 }}
-                >
+                <motion.div>
                   <span className="text-blue-400">const</span> <span className="text-green-400">developer</span> = {"{"}
                   <br />
                   &nbsp;&nbsp;<span className="text-purple-400">name</span>: <span className="text-orange-400">'Ahmed'</span>,
                   <br />
-                  &nbsp;&nbsp;<span className="text-purple-400">skills</span>: [<span className="text-orange-400">'React'</span>, <span className="text-orange-400">'Node'</span>, ...],
+                  &nbsp;&nbsp;<span className="text-purple-400">skills</span>: [<span className="text-orange-400">'Python'</span>, <span className="text-orange-400">'AI/ML'</span>, <span className="text-orange-400">'Backend'</span>],
                   <br />
-                  &nbsp;&nbsp;<span className="text-purple-400">passion</span>: <span className="text-orange-400">'Building amazing web apps'</span>
+                  &nbsp;&nbsp;<span className="text-purple-400">passion</span>: <span className="text-orange-400">'Building AI solutions'</span>
                   <br />
                   {"}"};
                 </motion.div>
-              </div>
+              </motion.div>
             </motion.div>
             
             <motion.div 

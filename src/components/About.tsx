@@ -51,32 +51,13 @@ const About = () => {
             
             <p className="text-lg leading-relaxed">
               A passionate Software Developer with a Bachelor's in Software Engineering from the University of Gujrat,
-              skilled in Python backend development, system solutions, and creating intelligent AI agents. 
-              Currently specialized in building impactful projects like AgroConnect and AI-powered app review analysis,
-              with a strong understanding of Large Language Models (LLMs) and their applications in natural language
+              skilled in Python backend development, AI/ML solutions, and creating intelligent AI agents. Currently
+              specialized in building impactful projects like AgroConnect and AI-powered app review analysis, with
+              a strong understanding of Large Language Models (LLMs) and their applications in natural language
               processing and automation.
             </p>
 
-            <div className="flex flex-wrap gap-4 mt-4">
-              <a 
-                href="https://www.linkedin.com/in/ahmed-kayani-10ba94224"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="flex items-center gap-2 hover:text-primary transition-colors"
-              >
-                <LinkIcon size={20} />
-                <span>LinkedIn</span>
-              </a>
-              <a 
-                href="https://github.com/ahmed2231web"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="flex items-center gap-2 hover:text-primary transition-colors"
-              >
-                <Github size={20} />
-                <span>GitHub</span>
-              </a>
-            </div>
+            
           </motion.div>
           
           <div className="lg:col-span-1 space-y-6">
@@ -98,7 +79,7 @@ const About = () => {
                   <h3 className="text-xl font-semibold text-primary group-hover:translate-x-1 transition-transform">Education</h3>
                 </div>
                 <p className="font-medium mt-2">Software Engineering</p>
-                <p className="text-muted-foreground">University of Gujrat, 2021-2025</p>
+                <p className="text-muted-foreground">University of Gujrat, 2021-present</p>
               </Card>
             </motion.div>
             
@@ -144,10 +125,10 @@ const About = () => {
                 <ul className="flex flex-wrap gap-2 mt-3">
                   {[
                     "Python Development",
+                    "Backend Development",
+                    "ML & AI Development",
                     "AI Agent Development",
                     "LLMs & NLP",
-                    "Backend Development",
-                    "Open Source",
                     "System Design"
                   ].map((interest, i) => (
                     <li 

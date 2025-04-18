@@ -1,4 +1,3 @@
-
 import { useState } from 'react';
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
@@ -255,8 +254,8 @@ const Contact = () => {
                     </motion.div>
                     <div>
                       <p className="font-medium text-white/90">Email</p>
-                      <a href="mailto:ahmed@example.com" className="text-theme-yellow hover:underline">
-                        ahmed@example.com
+                      <a href="mailto:attaahmed6655@gmail.com" className="text-theme-yellow hover:underline">
+                        attaahmed6655@gmail.com
                       </a>
                     </div>
                   </motion.div>
@@ -274,8 +273,8 @@ const Contact = () => {
                     </motion.div>
                     <div>
                       <p className="font-medium text-white/90">Phone</p>
-                      <a href="tel:+1234567890" className="text-theme-yellow hover:underline">
-                        +1 (234) 567-890
+                      <a href="tel:+923055968655" className="text-theme-yellow hover:underline">
+                        +92 305 5968655
                       </a>
                     </div>
                   </motion.div>
@@ -293,7 +292,7 @@ const Contact = () => {
                     </motion.div>
                     <div>
                       <p className="font-medium text-white/90">Location</p>
-                      <p className="text-white/70">New York, USA</p>
+                      <p className="text-white/70">Jhelum, Pakistan</p>
                     </div>
                   </motion.div>
                 </div>
@@ -314,7 +313,7 @@ const Contact = () => {
                       <Github size={18} className="text-theme-yellow group-hover:text-black relative z-10" />
                     </motion.a>
                     <motion.a 
-                      href="https://linkedin.com/" 
+                      href="https://www.linkedin.com/in/ahmed-kayani-10ba94224" 
                       target="_blank" 
                       rel="noopener noreferrer"
                       className="flex items-center justify-center w-10 h-10 rounded-full bg-theme-yellow/20 transition-colors relative overflow-hidden group"
