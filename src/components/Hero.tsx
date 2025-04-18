@@ -111,10 +111,11 @@ const Hero = () => {
               transition={{ delay: 0.9, duration: 0.8 }}
             >
               I <TypingEffect texts={[
-                "build for the web.",
-                "create user experiences.",
-                "solve complex problems.",
-                "turn ideas into reality."
+                "developer = {",
+                "    'name': 'Ahmed',",
+                "    'skills': ['Python', 'AI/ML', 'Backend'],", 
+                "    'passion': 'Building AI solutions'",
+                "}"
               ]} />
             </motion.h2>
           </motion.div>
