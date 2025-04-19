@@ -16,6 +16,15 @@ import {
 const projectsData: ProjectProps[] = [
   {
     id: '1',
+    title: 'ChatterSphere',
+    description: 'A modern, real-time chat application built with Django and WebSockets, featuring instant messaging and real-time updates.',
+    image: 'https://images.unsplash.com/photo-1611606063065-ee7946f0787a?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80',
+    tags: ['Python', 'Django', 'WebSockets'],
+    githubUrl: 'https://github.com/ahmed2231web/ChatterSphere',
+    categories: ['Backend', 'Python'],
+  },
+  {
+    id: '2',
     title: 'AgroConnect',
     description: 'An advanced e-commerce platform for agriculture with features like farmer-buyer connections and crop AI recommendations.',
     image: 'https://images.unsplash.com/photo-1495107334309-fcf20504a5ab?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80',
@@ -24,7 +33,7 @@ const projectsData: ProjectProps[] = [
     categories: ['Full Stack', 'AI/ML', 'Python'],
   },
   {
-    id: '2',
+    id: '3',
     title: 'AI Agent for App Review Analysis',
     description: 'AI system analyzing app reviews with specialized agents for insights, helping developers understand user feedback better.',
     image: 'https://images.unsplash.com/photo-1551288049-bebda4e38f71?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80',
@@ -33,7 +42,7 @@ const projectsData: ProjectProps[] = [
     categories: ['AI/ML', 'Backend'],
   },
   {
-    id: '3',
+    id: '4',
     title: 'Ollama RAG',
     description: 'Retrieval Augmented Generation system for document Q&A using Ollama, enabling intelligent document analysis.',
     image: 'https://images.unsplash.com/photo-1518770660439-4636190af475?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80',
@@ -42,7 +51,7 @@ const projectsData: ProjectProps[] = [
     categories: ['AI/ML', 'Backend'],
   },
   {
-    id: '4',
+    id: '5',
     title: 'AI Telegram Bot',
     description: 'Telegram bot with vision and crypto insights powered by Google Gemini, providing automated analysis and responses.',
     image: 'https://images.unsplash.com/photo-1611606063065-ee7946f0787a?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80',

@@ -97,7 +97,7 @@ const Hero = () => {
               Hi, my name is
             </motion.div>
             <motion.h1 
-              className="text-4xl sm:text-5xl md:text-7xl font-bold gradient-text-yellow pb-2 neon-glow-softer tracking-wider"
+              className="text-4xl sm:text-5xl md:text-7xl font-bold gradient-text-yellow pb-2 neon-glow-softer-subtle tracking-wider"
               initial={{ opacity: 0, x: -30 }}
               animate={{ opacity: 1, x: 0 }}
               transition={{ delay: 0.7, duration: 0.8 }}
@@ -193,15 +193,15 @@ const Hero = () => {
                   <div className="w-3 h-3 rounded-full bg-green-500"></div>
                 </div>
                 <motion.div>
-                  <span className="text-blue-400">const</span> <span className="text-green-400">developer</span> = {"{"}
+                  <span className="text-blue-400">class</span> <span className="text-green-400">Developer</span>:
                   <br />
-                  &nbsp;&nbsp;<span className="text-purple-400">name</span>: <span className="text-orange-400">'Ahmed'</span>,
+                  &nbsp;&nbsp;<span className="text-purple-400">def</span> <span className="text-orange-400">__init__</span>(self):
                   <br />
-                  &nbsp;&nbsp;<span className="text-purple-400">skills</span>: [<span className="text-orange-400">'Python'</span>, <span className="text-orange-400">'AI/ML'</span>, <span className="text-orange-400">'Backend'</span>],
+                  &nbsp;&nbsp;&nbsp;&nbsp;self.<span className="text-purple-400">name</span> = <span className="text-orange-400">'Ahmed'</span>
                   <br />
-                  &nbsp;&nbsp;<span className="text-purple-400">passion</span>: <span className="text-orange-400">'Building AI solutions'</span>
+                  &nbsp;&nbsp;&nbsp;&nbsp;self.<span className="text-purple-400">skills</span> = [<span className="text-orange-400">'Python'</span>, <span className="text-orange-400">'AI/ML'</span>]
                   <br />
-                  {"}"};
+                  &nbsp;&nbsp;&nbsp;&nbsp;self.<span className="text-purple-400">passion</span> = <span className="text-orange-400">'Building AI solutions'</span>
                 </motion.div>
               </motion.div>
             </motion.div>
