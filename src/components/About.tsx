@@ -1,8 +1,9 @@
 
+import React from 'react';
 import { Card } from '@/components/ui/card';
 import useScrollAnimation from '@/hooks/useScrollAnimation';
 import { motion } from 'framer-motion';
-import { GraduationCap, Briefcase, Heart, Link as LinkIcon, Github, Cpu, Code, Brain, LineChart, Sparkles } from 'lucide-react';
+import { GraduationCap, Briefcase, Heart, Link as LinkIcon, Github, Cpu, Code, Brain, LineChart, Sparkles, Rocket, Star } from 'lucide-react';
 
 const About = () => {
   const { ref: bioRef, isVisible: isBioVisible } = useScrollAnimation();
@@ -52,23 +53,34 @@ const About = () => {
             
             <div className="space-y-4 text-lg leading-relaxed">
               <p className="flex items-start gap-2">
-                <Code className="h-5 w-5 mt-1 text-theme-yellow" />
-                A passionate Software Developer with a deep love for building intelligent solutions 🚀
+                <Rocket className="h-5 w-5 mt-1 text-theme-yellow" />
+                A passionate Software Developer with over 2 years of experience in building intelligent solutions and scalable applications 🚀
               </p>
               
               <p className="flex items-start gap-2">
                 <Brain className="h-5 w-5 mt-1 text-theme-yellow" />
-                Specialized in Python backend development, AI/ML solutions, and creating intelligent AI agents 🤖
+                Expert in Python backend development, with a focus on AI/ML solutions and developing intelligent AI agents that solve real-world problems 🤖
               </p>
               
               <p className="flex items-start gap-2">
+                <Star className="h-5 w-5 mt-1 text-theme-yellow" />
+                Created multiple successful projects including ChatterSphere - a real-time chat application with Django and WebSockets, showcasing expertise in building interactive applications ⭐
+              </p>
+
+              <p className="flex items-start gap-2">
                 <LineChart className="h-5 w-5 mt-1 text-theme-yellow" />
-                Strong focus on building scalable applications and implementing cutting-edge AI technologies 📈
+                Skilled in developing RESTful APIs, database design, and implementing scalable architectures using modern technologies like FastAPI and PostgreSQL 📈
               </p>
 
               <p className="flex items-start gap-2">
                 <Sparkles className="h-5 w-5 mt-1 text-theme-yellow" />
-                Currently working on innovative projects like AgroConnect and AI-powered review analysis systems ✨
+                Currently leading the development of AgroConnect, an innovative agricultural technology platform, and building AI-powered review analysis systems that leverage cutting-edge NLP techniques ✨
+              </p>
+            </div>
+
+            <div className="mt-8 pt-6 border-t border-white/10">
+              <p className="text-theme-yellow/90 italic">
+                "Passionate about creating technology that makes a difference and continuously exploring new ways to push the boundaries of what's possible with AI and software development."
               </p>
             </div>
           </motion.div>
