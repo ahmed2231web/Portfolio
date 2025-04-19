@@ -3,7 +3,7 @@ import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
 import { Textarea } from '@/components/ui/textarea';
 import { Card } from '@/components/ui/card';
-import { Mail, MapPin, Phone, Github, Linkedin, Twitter, SendHorizonal, CheckCircle2 } from 'lucide-react';
+import { Mail, MapPin, Phone, Github, Linkedin, SendHorizonal, CheckCircle2 } from 'lucide-react';
 import { useToast } from '@/hooks/use-toast';
 import useScrollAnimation from '@/hooks/useScrollAnimation';
 import { motion } from 'framer-motion';
@@ -307,14 +307,6 @@ const Contact = () => {
                   }} aria-label="LinkedIn">
                       <span className="absolute inset-0 bg-theme-yellow opacity-0 group-hover:opacity-100 transition-opacity"></span>
                       <Linkedin size={18} className="text-theme-yellow group-hover:text-black relative z-10" />
-                    </motion.a>
-                    <motion.a href="https://twitter.com/" target="_blank" rel="noopener noreferrer" className="flex items-center justify-center w-10 h-10 rounded-full bg-theme-yellow/20 transition-colors relative overflow-hidden group" whileHover={{
-                    scale: 1.1
-                  }} whileTap={{
-                    scale: 0.95
-                  }} aria-label="Twitter">
-                      <span className="absolute inset-0 bg-theme-yellow opacity-0 group-hover:opacity-100 transition-opacity"></span>
-                      <Twitter size={18} className="text-theme-yellow group-hover:text-black relative z-10" />
                     </motion.a>
                   </div>
                 </div>

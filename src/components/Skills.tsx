@@ -1,4 +1,3 @@
-
 import { Card } from '@/components/ui/card';
 import {
   Code,
@@ -24,14 +23,14 @@ const skillCategories: SkillCategory[] = [
   {
     title: 'AI & ML',
     icon: <Zap size={24} strokeWidth={1.5} />,
-    skills: ['AI Agent Development', 'Machine Learning', 'NLP', 'LLMs', 'Python', 'TensorFlow'],
+    skills: ['AI Agent Development', 'Machine Learning', 'NLP', 'LLMs', 'Python'],
     gradient: 'from-theme-yellow to-amber-500/50',
     iconBg: 'bg-amber-500/20',
   },
   {
     title: 'Backend',
     icon: <Server size={24} strokeWidth={1.5} />,
-    skills: ['Python', 'Django', 'FastAPI', 'RESTful APIs', 'PostgreSQL', 'Docker'],
+    skills: ['Python', 'Django', 'FastAPI', 'RESTful APIs', 'PostgreSQL', 'Docker', 'Databases'],
     gradient: 'from-theme-yellow to-emerald-500/50',
     iconBg: 'bg-emerald-500/20',
   },
@@ -41,13 +40,6 @@ const skillCategories: SkillCategory[] = [
     skills: ['Git', 'GitHub', 'VS Code', 'Docker', 'Version Control', 'Package Management'],
     gradient: 'from-theme-yellow to-blue-500/50',
     iconBg: 'bg-blue-500/20',
-  },
-  {
-    title: 'Frontend',
-    icon: <Palette size={24} strokeWidth={1.5} />,
-    skills: ['React', 'JavaScript', 'TypeScript', 'HTML/CSS', 'Tailwind CSS', 'Responsive Design'],
-    gradient: 'from-theme-yellow to-purple-500/50',
-    iconBg: 'bg-purple-500/20',
   },
 ];
 
