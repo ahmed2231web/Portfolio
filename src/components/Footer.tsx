@@ -85,7 +85,7 @@ const Footer = () => {
                 <Linkedin className="w-5 h-5" />
               </motion.a>
               <motion.a 
-                href="mailto:ahmedkayani2230@gmail.com"
+                href="mailto:attaahmed5656@gmail.com"
                 className="text-theme-white/70 hover:text-theme-yellow transition-colors flex items-center justify-center w-10 h-10 rounded-full border border-theme-yellow/30 bg-black/50 backdrop-blur-sm hover:border-theme-yellow"
                 whileHover={{ scale: 1.1 }}
                 whileTap={{ scale: 0.95 }}
@@ -127,20 +127,20 @@ const Footer = () => {
                 </li>
                 <li>
                   <a 
-                    href="mailto:ahmedkayani2230@gmail.com" 
+                    href="mailto:attaahmed5656@gmail.com" 
                     className="flex items-start gap-3 text-theme-white/70 hover:text-theme-yellow transition-colors"
                   >
                     <Mail className="w-4 h-4 text-theme-yellow mt-1 flex-shrink-0" />
-                    <span className="break-all">ahmedkayani2230@gmail.com</span>
+                    <span className="break-all">attaahmed5656@gmail.com</span>
                   </a>
                 </li>
                 <li>
                   <a 
-                    href="tel:+923114816990" 
+                    href="tel:+923105569835" 
                     className="flex items-start gap-3 text-theme-white/70 hover:text-theme-yellow transition-colors"
                   >
                     <Phone className="w-4 h-4 text-theme-yellow mt-1 flex-shrink-0" />
-                    <span>+92 311 4816990</span>
+                    <span>+92 310 5569835</span>
                   </a>
                 </li>
               </ul>

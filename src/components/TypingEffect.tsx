@@ -1,4 +1,3 @@
-
 import React, { useState, useEffect } from 'react';
 
 interface TypingEffectProps {
@@ -57,9 +56,9 @@ const TypingEffect: React.FC<TypingEffectProps> = ({
   }, [displayText, isDeleting, textIndex, texts, typingSpeed, deletingSpeed, delayBetweenTexts, isWaiting]);
 
   return (
-    <span className={`${className} inline-block`}>
+    <span className={`${className} inline-flex`}>
       {displayText}
-      <span className="animate-blink-caret border-r-2 border-primary ml-0.5">&nbsp;</span>
+      <span className="animate-blink-caret border-r-2 border-theme-yellow h-[1em] ml-0.5 inline-block"></span>
     </span>
   );
 };

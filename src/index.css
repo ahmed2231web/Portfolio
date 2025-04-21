@@ -560,13 +560,17 @@
 /* Keep existing keyframes and animations */
 
 @keyframes typing {
-  0% { width: 0 }
-  100% { width: 100% }
+  from { width: 0 }
+  to { width: 100% }
 }
 
 @keyframes blink-caret {
   0%, 100% { border-color: transparent }
-  50% { border-color: currentColor }
+  50% { border-color: hsl(var(--primary)); }
+}
+
+.animate-blink-caret {
+  animation: blink-caret 0.75s step-end infinite;
 }
 
 @keyframes float {

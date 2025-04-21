@@ -105,16 +105,17 @@ const Hero = () => {
               Ahmed.
             </motion.h1>
             <motion.h2 
-              className="text-2xl sm:text-3xl md:text-5xl font-medium text-theme-white"
+              className="text-2xl sm:text-3xl md:text-5xl font-medium text-theme-white flex items-center flex-wrap"
               initial={{ opacity: 0, x: -40 }}
               animate={{ opacity: 1, x: 0 }}
               transition={{ delay: 0.9, duration: 0.8 }}
             >
-              I <TypingEffect texts={[
-                "build for the web.",
-                "create user experiences.",
-                "solve complex problems.",
-                "turn ideas into reality."
+              <span className="mr-2">I</span>
+              <TypingEffect texts={[
+                "create software solutions.",
+                "build AI applications.",
+                "develop intelligent agents.",
+                "design user experiences."
               ]} />
             </motion.h2>
           </motion.div>
@@ -139,7 +140,7 @@ const Hero = () => {
             className="flex flex-col sm:flex-row gap-4"
           >
             <a 
-              href="https://flowcv.com/resume/uscg3n22ccss" 
+              href="https://github.com/ahmed2231web" 
               target="_blank" 
               rel="noopener noreferrer" 
               className="w-full sm:w-auto group"
