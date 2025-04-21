@@ -2,12 +2,6 @@
 
 A modern, interactive portfolio website built to showcase Ahmed's skills, experience, and projects in the field of web development and software engineering.
 
-![Portfolio Preview](./public/preview.png)
-
-## 🚀 Live Demo
-
-Visit the live site: [Ahmed Web Artisan](https://ahmed-web-artisan-production.up.railway.app/)
-
 ## ✨ Features
 
 - **Responsive Design** - Optimized for all device sizes
