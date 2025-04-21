@@ -126,9 +126,9 @@ const Hero = () => {
             transition={{ delay: 1.2, duration: 0.8 }}
             className="max-w-xl text-base sm:text-lg md:text-xl text-theme-white/90"
           >
-            I'm a passionate full-stack developer focused on creating exceptional digital experiences. 
-            Currently, I specialize in building responsive, accessible, and high-performance web applications
-            that solve real-world problems.
+            Software Engineer with expertise in Python, backend development, and AI solutions. 
+            Creator of intelligent AI agents and data-driven applications, specializing in 
+            LLMs and natural language processing to solve real-world challenges.
           </motion.div>
 
           <motion.div 

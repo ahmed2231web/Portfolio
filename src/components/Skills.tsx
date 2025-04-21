@@ -14,6 +14,7 @@ const SKILLS = [
       "Databases",
       "PostgreSQL",
       "SQLite",
+      "System Design",
     ]
   },
   {
@@ -22,10 +23,10 @@ const SKILLS = [
     skills: [
       "Machine Learning",
       "Deep Learning",
-      "PyTorch",
       "NLP",
       "OpenAI & LLMs",
-      "Scikit-learn",
+      "OpenCV",
+      "AI Agents",
     ]
   },
 ];

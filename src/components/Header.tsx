@@ -123,10 +123,11 @@ const Header = () => {
             transition={{ duration: 0.5, delay: 0.6 }}
           >
             <a 
-              href="/Ahmed_Resume.pdf"
+              href="/Ahmed-Kayani-FlowCV.pdf"
               target="_blank" 
               rel="noopener noreferrer"
               className="inline-block"
+              download="Ahmed-Kayani-Resume.pdf"
             >
               <Button 
                 variant="outline" 
@@ -204,11 +205,12 @@ const Header = () => {
                 transition={{ duration: 0.3, delay: 0.5 }}
               >
                 <a 
-                  href="/Ahmed_Resume.pdf" 
+                  href="/Ahmed-Kayani-FlowCV.pdf" 
                   target="_blank" 
                   rel="noopener noreferrer"
                   className="block w-full py-2 mt-6"
                   onClick={closeMobileMenu}
+                  download="Ahmed-Kayani-Resume.pdf"
                 >
                   <Button 
                     variant="outline" 
